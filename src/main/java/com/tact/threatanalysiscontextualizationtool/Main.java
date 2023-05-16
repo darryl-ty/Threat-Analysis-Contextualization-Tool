@@ -18,6 +18,8 @@ public class Main extends Application{
         Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
         stage.setWidth(primScreenBounds.getWidth() - (primScreenBounds.getHeight()/ 2));
         stage.setHeight(primScreenBounds.getHeight() - (primScreenBounds.getHeight()/ 4));
+
+
         stage.setScene(scene);
         stage.show();
 

@@ -1,0 +1,9 @@
+#uploadButton{
+    -fx-graphic:"com/tact/threatanalysiscontextualizationtool/Icons/upload.png"
+}
+#searchButton{
+    -fx-graphic:"com/tact/threatanalysiscontextualizationtool/Icons/search.png"
+}
+#optionsButton{
+    -fx-graphic:"com/tact/threatanalysiscontextualizationtool/Icons/cogwheel.png"
+}

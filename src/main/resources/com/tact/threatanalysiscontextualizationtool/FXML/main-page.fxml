@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tact.threatanalysiscontextualizationtool.MainController">
+    <TabPane layoutX="223.0" prefHeight="400.0" prefWidth="1100.0" tabClosingPolicy="UNAVAILABLE">
+        <Tab text="Overview">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="97.0" prefWidth="609.0" />
+        </Tab>
+        <Tab text="Virustotal">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </Tab>
+        <Tab text="Malware Bazaar">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </Tab>
+    </TabPane>
+    <Pane layoutX="-22.0" layoutY="-53.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="690.0" prefWidth="245.0" style="-fx-background-color: grey;">
+        <Label layoutX="72.0" layoutY="74.0" text="TACT" textAlignment="CENTER">
+           <font>
+               <Font name="Roboto Light" size="48.0" />
+           </font>
+        </Label>
+        <Separator layoutX="31.0" layoutY="146.0" prefWidth="200.0" />
+        <Label layoutX="62.0" layoutY="206.0" text="Previous Uploads" textAlignment="CENTER">
+           <font>
+               <Font name="Roboto Light" size="18.0" />
+           </font>
+        </Label>
+      <Button fx:id="uploadButton" layoutX="62.0" layoutY="160.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+               <image>
+                  <Image url="@../Icons/upload.png" />
+               </image>
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="searchButton" layoutX="147.0" layoutY="160.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+               <image>
+                  <Image url="@../Icons/search.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="optionsButton" layoutX="105.0" layoutY="620.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+               <image>
+                  <Image url="@../Icons/cogwheel.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+    </Pane>
+</AnchorPane>

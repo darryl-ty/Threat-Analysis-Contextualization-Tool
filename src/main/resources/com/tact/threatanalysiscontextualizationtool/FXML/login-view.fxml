@@ -10,7 +10,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="divider" dividerPositions="0.17558528428093645" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tact.threatanalysiscontextualizationtool.SceneController">
+<SplitPane fx:id="divider" dividerPositions="0.17558528428093645" maxHeight="-Infinity" maxWidth="-Infinity"
+           minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0"
+           xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.tact.threatanalysiscontextualizationtool.SceneController">
     <AnchorPane minHeight="0.0" minWidth="150.0" prefHeight="160.0" prefWidth="708.0">
         <PasswordField layoutX="27.0" layoutY="130.0" prefHeight="26.0" prefWidth="91.0" promptText="Password">
          <font>

@@ -37,7 +37,7 @@
                <Font name="Roboto Light" size="18.0" />
            </font>
         </Label>
-      <Button fx:id="uploadButton" layoutX="62.0" layoutY="160.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+      <Button layoutX="62.0" layoutY="160.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -51,7 +51,7 @@
                </viewport>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="searchButton" layoutX="147.0" layoutY="160.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+      <Button layoutX="147.0" layoutY="160.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                <image>
@@ -62,7 +62,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="optionsButton" layoutX="105.0" layoutY="620.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+      <Button layoutX="105.0" layoutY="620.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                <image>

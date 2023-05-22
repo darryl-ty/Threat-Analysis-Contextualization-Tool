@@ -42,33 +42,27 @@
             <Cursor fx:constant="HAND" />
          </cursor>
          <graphic>
-            <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" smooth="false">
-               <image>
-                  <Image url="@../Icons/upload.png" />
-               </image>
-               <viewport>
-                  <Rectangle2D />
-               </viewport>
-            </ImageView>
+             <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                 <viewport>
+                     <Rectangle2D/>
+                 </viewport>
+                 <Image url="@../Icons/upload.png"/>
+             </ImageView>
          </graphic></Button>
       <Button layoutX="147.0" layoutY="160.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
          <graphic>
-            <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" smooth="false">
-               <image>
-                  <Image url="@../Icons/search.png" />
-               </image>
-            </ImageView>
+             <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                 <Image url="@../Icons/search.png"/>
+             </ImageView>
          </graphic>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <Button layoutX="105.0" layoutY="620.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
          <graphic>
-            <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" smooth="false">
-               <image>
-                  <Image url="@../Icons/cogwheel.png" />
-               </image>
-            </ImageView>
+             <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                 <Image url="@../Icons/cogwheel.png"/>
+             </ImageView>
          </graphic>
          <cursor>
             <Cursor fx:constant="HAND" />

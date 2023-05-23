@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tact.threatanalysiscontextualizationtool.MainController">
-    <TabPane layoutX="223.0" prefHeight="400.0" prefWidth="1100.0" tabClosingPolicy="UNAVAILABLE">
+    <TabPane layoutX="223.0" prefHeight="400.0" prefWidth="1100.0" stylesheets="@../StyleSheets/main.css" tabClosingPolicy="UNAVAILABLE">
         <Tab text="Overview">
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="97.0" prefWidth="609.0" />
         </Tab>
@@ -22,6 +22,9 @@
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
         </Tab>
         <Tab text="Malware Bazaar">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </Tab>
+        <Tab text="URLhaus">
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
         </Tab>
     </TabPane>
@@ -44,15 +47,15 @@
          <graphic>
              <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                  <viewport>
-                     <Rectangle2D/>
+                     <Rectangle2D />
                  </viewport>
-                 <Image url="@../Icons/upload.png"/>
+                 <Image url="@../Icons/upload.png" />
              </ImageView>
          </graphic></Button>
       <Button layoutX="147.0" layoutY="160.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
          <graphic>
              <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" smooth="false">
-                 <Image url="@../Icons/search.png"/>
+                 <Image url="@../Icons/search.png" />
              </ImageView>
          </graphic>
          <cursor>
@@ -61,7 +64,7 @@
       <Button layoutX="105.0" layoutY="620.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
          <graphic>
              <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" smooth="false">
-                 <Image url="@../Icons/cogwheel.png"/>
+                 <Image url="@../Icons/cogwheel.png" />
              </ImageView>
          </graphic>
          <cursor>

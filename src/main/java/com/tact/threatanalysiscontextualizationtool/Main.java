@@ -20,10 +20,11 @@ public class Main extends Application{
         scale.setPivotX(0);
         scale.setPivotY(0);
         Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setWidth(primScreenBounds.getWidth() - (primScreenBounds.getHeight()/ 2));
-        stage.setHeight(primScreenBounds.getHeight() - (primScreenBounds.getHeight()/ 4));
+        stage.setWidth(1280);
+        stage.setHeight(720);
         scene.getRoot().getTransforms().setAll(scale);
 
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
 

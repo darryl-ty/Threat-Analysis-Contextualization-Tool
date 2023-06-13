@@ -6,11 +6,11 @@ import java.io.IOException;
 
 public class MainController {
 
-    public void uploadPopupWindow(ActionEvent event) throws IOException{
+    public void uploadPopupWindow(ActionEvent event){
 
     }
 
-    public void settingsPopupWindow(ActionEvent event) throws IOException{
+    public void settingsPopupWindow(ActionEvent event){
 
     }
 }

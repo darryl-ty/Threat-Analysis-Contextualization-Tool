@@ -40,7 +40,7 @@
                <Font name="Roboto Light" size="18.0" />
            </font>
         </Label>
-      <Button layoutX="62.0" layoutY="160.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+      <Button layoutX="62.0" layoutY="160.0" mnemonicParsing="false" onAction="#uploadPopupWindow" style="-fx-background-color: transparent;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -61,7 +61,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button layoutX="105.0" layoutY="575.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+      <Button layoutX="105.0" layoutY="575.0" mnemonicParsing="false" onAction="#settingsPopupWindow" style="-fx-background-color: transparent;">
          <graphic>
              <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                  <Image url="@../Icons/cogwheel.png" />

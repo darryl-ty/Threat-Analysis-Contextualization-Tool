@@ -19,7 +19,6 @@ public class Main extends Application{
         Scale scale = new Scale(1.2, 1.2);
         scale.setPivotX(0);
         scale.setPivotY(0);
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
         stage.setWidth(1280);
         stage.setHeight(720);
         scene.getRoot().getTransforms().setAll(scale);

@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -71,4 +72,14 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
     </Pane>
+   <TitledPane fx:id="uploadPopup" animated="false" collapsible="false" layoutX="475.0" layoutY="125.0" prefHeight="180.0" prefWidth="320.0" text="Upload" textAlignment="CENTER" visible="false">
+     <content>
+       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <children>
+               <Button layoutX="80.0" layoutY="115.0" mnemonicParsing="false" text="Submit" />
+               <Button layoutX="190.0" layoutY="115.0" mnemonicParsing="false" text="Cancel" />
+            </children>
+         </AnchorPane>
+     </content>
+   </TitledPane>
 </AnchorPane>

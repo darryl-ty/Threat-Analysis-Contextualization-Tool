@@ -32,7 +32,6 @@ public class MainController implements Initializable {
     }
 
     public void uploadWindowEnable(){
-//        choiceBoxInitialize(uploadChoiceBox);
         uploadPopup.setVisible(true);
         greyOut.setVisible(true);
         sidePane.setDisable(true);
@@ -45,10 +44,6 @@ public class MainController implements Initializable {
         sidePane.setDisable(false);
         mainContent.setDisable(false);
     }
-
-//    private void  choiceBoxInitialize(ChoiceBox<String> inputChoiceBox){
-//        inputChoiceBox.setValue(choiceBoxOptions[0]);
-//    }
 
     public void settingsPopupWindow(){
 

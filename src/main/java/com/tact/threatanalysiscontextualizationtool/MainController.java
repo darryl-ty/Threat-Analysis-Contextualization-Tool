@@ -1,6 +1,7 @@
 package com.tact.threatanalysiscontextualizationtool;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
@@ -16,6 +17,8 @@ public class MainController{
     private Pane sidePane;
     @FXML
     private TabPane mainContent;
+    @FXML
+    private Label uploadLabel;
 
 
     @FXML
@@ -25,7 +28,7 @@ public class MainController{
 
 
     public void fileSelection(){
-
+        uploadLabel.setText("Please click or drag a file to the box below.");
     }
 
     public void uploadWindowEnable(){
@@ -33,6 +36,7 @@ public class MainController{
         greyOut.setVisible(true);
         sidePane.setDisable(true);
         mainContent.setDisable(true);
+        uploadLabel.setText("");
     }
 
     public void uploadWindowDisable(){
@@ -43,6 +47,7 @@ public class MainController{
     }
 
     public void urlSelection(){
+        uploadLabel.setText("Please input a URL/IP Address below.");
 
     }
 

@@ -21,9 +21,6 @@ public class MainController implements Initializable {
     private Pane sidePane;
     @FXML
     private TabPane mainContent;
-    @FXML
-    private ChoiceBox<String> uploadChoiceBox;
-    private String[] choiceBoxOptions = {"File", "URL/IP Address"};
 
 
     @Override

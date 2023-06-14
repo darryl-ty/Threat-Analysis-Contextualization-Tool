@@ -23,6 +23,11 @@ public class MainController{
         uploadWindowDisable();
     }
 
+
+    public void fileSelection(){
+
+    }
+
     public void uploadWindowEnable(){
         uploadPopup.setVisible(true);
         greyOut.setVisible(true);
@@ -35,6 +40,10 @@ public class MainController{
         greyOut.setVisible(false);
         sidePane.setDisable(false);
         mainContent.setDisable(false);
+    }
+
+    public void urlSelection(){
+
     }
 
     public void settingsPopupWindow(){

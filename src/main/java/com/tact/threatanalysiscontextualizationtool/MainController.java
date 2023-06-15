@@ -61,6 +61,7 @@ public class MainController{
         mainContent.setDisable(true);
         menuDropdown.setVisible(true);
         uploadLabel.setText("");
+        fileURIBox.setText("");
     }
 
     public void uploadWindowDisable(){

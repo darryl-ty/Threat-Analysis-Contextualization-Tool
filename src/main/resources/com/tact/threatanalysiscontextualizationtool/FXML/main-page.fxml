@@ -7,7 +7,6 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -76,7 +75,6 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <ListView layoutX="31.0" layoutY="233.0" prefHeight="334.0" prefWidth="200.0" />
-      <Slider layoutX="217.0" layoutY="233.0" orientation="VERTICAL" prefHeight="334.0" prefWidth="14.0" value="100.0" />
     </Pane>
    <AnchorPane fx:id="greyOut" layoutX="-230.0" layoutY="-138.0" opacity="0.35" prefHeight="709.0" prefWidth="1591.0" style="-fx-background-color: grey;" visible="false" />
     <TitledPane fx:id="uploadPopup" animated="false" collapsible="false" layoutX="475.0" layoutY="125.0" prefHeight="180.0" prefWidth="320.0" text="Upload" textAlignment="CENTER">

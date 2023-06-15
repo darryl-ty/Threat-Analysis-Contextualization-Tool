@@ -1,9 +1,15 @@
 package com.tact.threatanalysiscontextualizationtool;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
+
+import java.io.File;
 
 public class MainController{
 
@@ -38,6 +44,14 @@ public class MainController{
         menuDropdown.setVisible(false);
         fileURIBox.setVisible(true);
         fileURIButton.setVisible(true);
+    }
+
+    public void fileChooserPopup(ActionEvent event){
+        Window window = ((Node) (event.getSource())).getScene().getWindow();
+        FileChooser fileChooser = new FileChooser();
+        File file = fileChooser.showOpenDialog(window);
+        event.consume();
+        fileURIBox.setText(file.getName());
     }
 
     public void uploadWindowEnable(){

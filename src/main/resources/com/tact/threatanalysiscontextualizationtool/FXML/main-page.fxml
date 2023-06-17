@@ -24,15 +24,6 @@
         <Tab text="Overview">
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="97.0" prefWidth="609.0" />
         </Tab>
-        <Tab text="Virustotal">
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </Tab>
-        <Tab text="Malware Bazaar">
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </Tab>
-        <Tab text="URLhaus">
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </Tab>
     </TabPane>
     <Pane fx:id="sidePane" layoutX="-22.0" layoutY="-53.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="690.0" prefWidth="245.0" style="-fx-background-color: grey;">
         <Label layoutX="72.0" layoutY="74.0" text="TACT" textAlignment="CENTER">

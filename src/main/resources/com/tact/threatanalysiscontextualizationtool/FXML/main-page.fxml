@@ -88,9 +88,9 @@
             <graphic>
                 <ImageView fitHeight="13.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                     <viewport>
-                        <Rectangle2D/>
+                        <Rectangle2D />
                     </viewport>
-                    <Image url="@../Icons/redo_button.png"/>
+                    <Image url="@../Icons/redo_button.png" />
                 </ImageView>
             </graphic>
          </Button>

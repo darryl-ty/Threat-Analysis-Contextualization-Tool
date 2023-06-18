@@ -45,6 +45,7 @@ public class MainController{
 
 
     public void fileSelection(){
+        uploadLabel.setVisible(true);
         uploadLabel.setText("Please click or drag a file to the box below.");
         menuDropdown.setVisible(false);
         fileURIBox.setVisible(true);
@@ -82,6 +83,7 @@ public class MainController{
     }
 
     public void urlSelection(){
+        uploadLabel.setVisible(true);
         uploadLabel.setText("Please input a URL/IP Address below.");
         menuDropdown.setVisible(false);
         urlAddressBox.setVisible(true);
@@ -94,7 +96,9 @@ public class MainController{
         fileURIButton.setVisible(false);
         urlAddressBox.setVisible(false);
         redoButton.setVisible(false);
+        uploadLabel.setVisible(false);
         menuDropdown.setVisible(true);
+
     }
 
     public void settingsPopupWindow(){

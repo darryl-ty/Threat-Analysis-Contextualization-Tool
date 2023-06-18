@@ -34,6 +34,8 @@ public class MainController{
     private TextField fileURIBox;
     @FXML
     private Button fileURIButton;
+    @FXML
+    private Button redoButton;
 
 
     @FXML
@@ -47,6 +49,7 @@ public class MainController{
         menuDropdown.setVisible(false);
         fileURIBox.setVisible(true);
         fileURIButton.setVisible(true);
+        redoButton.setVisible(true);
     }
 
     public void fileChooserPopup(ActionEvent event){
@@ -72,6 +75,7 @@ public class MainController{
         urlAddressBox.setVisible(false);
         fileURIBox.setVisible(false);
         fileURIButton.setVisible(false);
+        redoButton.setVisible(false);
         greyOut.setVisible(false);
         sidePane.setDisable(false);
         mainContent.setDisable(false);
@@ -81,7 +85,16 @@ public class MainController{
         uploadLabel.setText("Please input a URL/IP Address below.");
         menuDropdown.setVisible(false);
         urlAddressBox.setVisible(true);
+        redoButton.setVisible(true);
 
+    }
+
+    public void redoUploadButton(){
+        fileURIBox.setVisible(false);
+        fileURIButton.setVisible(false);
+        urlAddressBox.setVisible(false);
+        redoButton.setVisible(false);
+        menuDropdown.setVisible(true);
     }
 
     public void settingsPopupWindow(){

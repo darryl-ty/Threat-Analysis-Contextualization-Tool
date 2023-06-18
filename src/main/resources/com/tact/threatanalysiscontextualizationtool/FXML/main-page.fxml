@@ -84,6 +84,18 @@
          <TextField fx:id="urlAddressBox" layoutX="82.0" layoutY="52.0" prefWidth="156.0" visible="false" />
          <TextField fx:id="fileURIBox" editable="false" layoutX="82.0" layoutY="52.0" prefWidth="156.0" />
          <Button fx:id="fileURIButton" layoutX="216.0" layoutY="52.0" mnemonicParsing="false" onAction="#fileChooserPopup" prefHeight="25.0" prefWidth="22.0" text="..." textAlignment="CENTER" />
+         <Button fx:id="redoButton" layoutX="250.0" layoutY="52.0" maxHeight="25.0" maxWidth="22.0" mnemonicParsing="false" onAction="#redoUploadButton" prefHeight="25.0" prefWidth="22.0" textAlignment="CENTER">
+            <graphic>
+               <ImageView fitHeight="13.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../Icons/redo_button.png" />
+                  </image>
+                  <viewport>
+                     <Rectangle2D />
+                  </viewport>
+               </ImageView>
+            </graphic>
+         </Button>
          <SplitMenuButton fx:id="menuDropdown" layoutX="82.0" layoutY="52.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="156.0" text="Select Upload Type" visible="false">
             <items>
                <MenuItem mnemonicParsing="false" onAction="#fileSelection" text="File" />

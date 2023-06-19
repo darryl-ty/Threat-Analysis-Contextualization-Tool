@@ -13,8 +13,8 @@ import java.io.File;
 
 public class MainController{
 
-    private final String[] FILE_TABS = new String[]{"VirusTotal", "MalwareBazaar", "Cuckoo(Open)"};
-    private final String[] URL_TABS = new String[]{"VirusTotal", "Talos", "URLhaus", "URLVoid"};
+    private final String[] FILE_TABS = new String[]{"VirusTotal", "Cuckoo(Open)"};
+    private final String[] URL_TABS = new String[]{"VirusTotal", "Talos", "URLVoid"};
 
     @FXML
     private TitledPane uploadPopup;

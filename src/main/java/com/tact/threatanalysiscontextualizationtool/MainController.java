@@ -68,9 +68,9 @@ public class MainController{
     public void uploadWindowEnable(){
         uploadPopup.setVisible(true);
         greyOut.setVisible(true);
+        menuDropdown.setVisible(true);
         sidePane.setDisable(true);
         mainContent.setDisable(true);
-        menuDropdown.setVisible(true);
         uploadLabel.setText("");
         fileURIBox.setText("");
     }
@@ -84,6 +84,8 @@ public class MainController{
         greyOut.setVisible(false);
         sidePane.setDisable(false);
         mainContent.setDisable(false);
+
+        removeTabs();
     }
 
     public void urlSelection(){

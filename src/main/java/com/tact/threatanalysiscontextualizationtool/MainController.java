@@ -51,6 +51,10 @@ public class MainController{
         fileURIBox.setVisible(true);
         fileURIButton.setVisible(true);
         redoButton.setVisible(true);
+
+        for (String entry : FILE_TABS){
+            mainContent.getTabs().add(new Tab(entry));
+        }
     }
 
     public void fileChooserPopup(ActionEvent event){
@@ -88,6 +92,10 @@ public class MainController{
         menuDropdown.setVisible(false);
         urlAddressBox.setVisible(true);
         redoButton.setVisible(true);
+
+        for (String entry : URL_TABS){
+            mainContent.getTabs().add(new Tab(entry));
+        }
 
     }
 

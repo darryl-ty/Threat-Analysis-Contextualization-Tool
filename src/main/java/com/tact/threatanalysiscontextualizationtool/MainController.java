@@ -107,6 +107,11 @@ public class MainController{
         uploadLabel.setVisible(false);
         menuDropdown.setVisible(true);
 
+        removeTabs();
+    }
+
+    private void removeTabs(){
+        mainContent.getTabs().remove(1, mainContent.getTabs().size());
     }
 
     public void settingsPopupWindow(){

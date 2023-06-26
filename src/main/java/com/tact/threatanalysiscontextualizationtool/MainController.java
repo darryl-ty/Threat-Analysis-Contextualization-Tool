@@ -95,9 +95,7 @@ public class MainController{
         urlAddressBox.setVisible(true);
         redoButton.setVisible(true);
 
-        for (String entry : URL_TABS){
-            mainContent.getTabs().add(new Tab(entry));
-        }
+        for (String entry : URL_TABS){mainContent.getTabs().add(new Tab(entry));}
 
     }
 

@@ -115,6 +115,7 @@ public class MainController{
     }
 
     public void settingsPopupWindow(){
-
+        VirusTotalFile vt = new VirusTotalFile("H:\\Cube World\\Cube.exe", "Cube.exe");
+        vt.start();
     }
 }

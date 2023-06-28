@@ -1,5 +1,6 @@
 package com.tact.threatanalysiscontextualizationtool;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,10 +23,12 @@ public class VirusTotalFile extends Thread {
     public void run(){
         WebDriver driver = createWebDriverWithOptions();
         initiateVirusTotalWebDriver(driver);
-        virusTotalInfoCollection(driver);
+        virusTotalInfoCollection((JavascriptExecutor) driver);
     }
 
-    private void virusTotalInfoCollection(WebDriver driverVirusTotal) {
+    private void virusTotalInfoCollection(JavascriptExecutor driverVirusTotal) {
+        WebElement vtRating = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#report\").shadowRoot.querySelector(\"div > div.row.mb-4.d-none.d-lg-flex > div.col-auto > vt-ui-community-widget\")");
+        System.out.println(vtRating.getAttribute("score"));
 
     }
 

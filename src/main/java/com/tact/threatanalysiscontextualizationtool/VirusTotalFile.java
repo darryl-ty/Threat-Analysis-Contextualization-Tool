@@ -28,7 +28,9 @@ public class VirusTotalFile extends Thread {
 
     private void virusTotalInfoCollection(JavascriptExecutor driverVirusTotal) {
         WebElement vtRating = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#report\").shadowRoot.querySelector(\"div > div.row.mb-4.d-none.d-lg-flex > div.col-auto > vt-ui-community-widget\")");
-        System.out.println(vtRating.getAttribute("score"));
+        threatRating = Integer.parseInt(vtRating.getAttribute("score"));
+
+
 
     }
 

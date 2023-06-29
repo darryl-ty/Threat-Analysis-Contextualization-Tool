@@ -10,6 +10,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Window;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class MainController{
 
@@ -143,7 +144,7 @@ public class MainController{
     }
 
     private void fileUpload(File file){
-        VirusTotalFile vt = new VirusTotalFile(file.getPath(), file.getName());
+        VirusTotalFile vt = new VirusTotalFile(file.getPath(), file.getName(), "", new ArrayList<>());
         vt.start();
     }
 

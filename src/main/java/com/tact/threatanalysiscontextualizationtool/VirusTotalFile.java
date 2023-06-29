@@ -34,16 +34,11 @@ public class VirusTotalFile extends Thread {
         virusTotalInfoCollection((JavascriptExecutor) driver);
     }
 
-    private void virusTotalInfoCollection(JavascriptExecutor driverVirusTotal) {
-        WebElement vtRating = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#report\").shadowRoot.querySelector(\"div > div.row.mb-4.d-none.d-lg-flex > div.col-auto > vt-ui-community-widget\")");
-        threatRating = Integer.parseInt(vtRating.getAttribute("score"));
+    private WebDriver createWebDriverWithOptions(){
+        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--headless=new");
 
-
-
-        WebElement alias = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#details\").shadowRoot.querySelector(\"div > vt-ui-expandable:nth-child(3) > span > vt-ui-simple-expandable-list\").shadowRoot.querySelector(\"ul\")");
-        for (WebElement name : alias.findElements(By.tagName("span"))){
-            fileKnownAliases.add(name.getText().strip());
-        }
+        return new ChromeDriver(options);
     }
 
     private void initiateVirusTotalWebDriver(WebDriver driverVirusTotal){
@@ -55,14 +50,6 @@ public class VirusTotalFile extends Thread {
         sleepForASecond();
     }
 
-    private static void sleepForASecond() {
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     private JavascriptExecutor jsNavigator(WebDriver driverVirusTotal) {
         driverVirusTotal.get("https://www.virustotal.com/gui/home/upload");
         JavascriptExecutor js = (JavascriptExecutor) driverVirusTotal;
@@ -71,11 +58,33 @@ public class VirusTotalFile extends Thread {
         return js;
     }
 
-    private WebDriver createWebDriverWithOptions(){
-        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless=new");
+    private void virusTotalInfoCollection(JavascriptExecutor driverVirusTotal) {
+        fileRating(driverVirusTotal);
+        otherFileNames(driverVirusTotal);
 
-        return new ChromeDriver(options);
+    }
+
+    private void fileRating(JavascriptExecutor driverVirusTotal) {
+        WebElement vtRating = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#report\").shadowRoot.querySelector(\"div > div.row.mb-4.d-none.d-lg-flex > div.col-auto > vt-ui-community-widget\")");
+        threatRating = Integer.parseInt(vtRating.getAttribute("score"));
+    }
+
+    private void otherFileNames(JavascriptExecutor driverVirusTotal) {
+        WebElement alias = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#details\").shadowRoot.querySelector(\"div > vt-ui-expandable:nth-child(3) > span > vt-ui-simple-expandable-list\").shadowRoot.querySelector(\"ul\")");
+        for (WebElement name : alias.findElements(By.tagName("span"))){
+            if (name.getText().isBlank())
+                continue;
+            fileKnownAliases.add(name.getText().strip());
+        }
+    }
+
+
+    private static void sleepForASecond() {
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public String getFileURI() {

@@ -73,7 +73,7 @@
    <AnchorPane fx:id="greyOut" layoutX="-230.0" layoutY="-138.0" opacity="0.35" prefHeight="709.0" prefWidth="1591.0" style="-fx-background-color: grey;" visible="false" />
     <TitledPane fx:id="uploadPopup" animated="false" collapsible="false" layoutX="475.0" layoutY="125.0" prefHeight="180.0" prefWidth="320.0" text="Upload" textAlignment="CENTER">
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-            <Button layoutX="80.0" layoutY="115.0" mnemonicParsing="false" text="Submit">
+            <Button fx:id="submitButton" layoutX="80.0" layoutY="115.0" mnemonicParsing="false" onAction="#submitSelection" text="Submit">
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor></Button>

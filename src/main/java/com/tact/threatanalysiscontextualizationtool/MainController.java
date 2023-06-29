@@ -15,6 +15,9 @@ public class MainController{
 
     private final String[] FILE_TABS = new String[]{"VirusTotal", "Cuckoo(Open)"};
     private final String[] URL_TABS = new String[]{"VirusTotal", "Talos", "URLVoid"};
+    private File uploadedFile;
+    private boolean fileSelect;
+    private boolean urlSelect;
 
     @FXML
     private TitledPane uploadPopup;
@@ -36,11 +39,15 @@ public class MainController{
     private Button fileURIButton;
     @FXML
     private Button redoButton;
+    @FXML
+    private Button submitButton;
 
 
     @FXML
     public void initialize(){
         uploadWindowDisable();
+        fileSelect = false;
+        urlSelect = false;
     }
 
 
@@ -51,6 +58,7 @@ public class MainController{
         fileURIBox.setVisible(true);
         fileURIButton.setVisible(true);
         redoButton.setVisible(true);
+        fileSelect = true;
 
         for (String entry : FILE_TABS){
             mainContent.getTabs().add(new Tab(entry));
@@ -62,7 +70,9 @@ public class MainController{
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog(window);
         event.consume();
-        fileURIBox.setText(file.getName());
+        fileURIBox.setText(file.getPath());
+
+        uploadedFile = file;
     }
 
     public void uploadWindowEnable(){
@@ -85,6 +95,9 @@ public class MainController{
         sidePane.setDisable(false);
         mainContent.setDisable(false);
 
+        urlSelect = false;
+        fileSelect = false;
+
         removeTabs();
     }
 
@@ -94,6 +107,7 @@ public class MainController{
         menuDropdown.setVisible(false);
         urlAddressBox.setVisible(true);
         redoButton.setVisible(true);
+        urlSelect = true;
 
         for (String entry : URL_TABS){mainContent.getTabs().add(new Tab(entry));}
 
@@ -107,15 +121,38 @@ public class MainController{
         uploadLabel.setVisible(false);
         menuDropdown.setVisible(true);
 
+        fileSelect = false;
+        urlSelect = false;
+
         removeTabs();
+    }
+
+    public void submitSelection(ActionEvent event){
+        if (fileSelect){
+            fileUpload(uploadedFile);
+        } else if (urlSelect) {
+            urlUpload(urlAddressBox.getText());
+        } else {
+            System.out.println();
+        }
+
+    }
+
+    public void settingsPopupWindow(){
+
+    }
+
+    private void fileUpload(File file){
+        VirusTotalFile vt = new VirusTotalFile(file.getPath(), file.getName());
+        vt.start();
+    }
+
+    private void urlUpload(String url){
+
     }
 
     private void removeTabs(){
         mainContent.getTabs().remove(1, mainContent.getTabs().size());
     }
 
-    public void settingsPopupWindow(){
-        VirusTotalFile vt = new VirusTotalFile("H:\\Cube World\\Cube.exe", "Cube.exe");
-        vt.start();
-    }
 }

@@ -19,10 +19,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tact.threatanalysiscontextualizationtool.MainController">
-    <TabPane fx:id="mainContent" layoutX="223.0" prefHeight="400.0" prefWidth="1100.0" stylesheets="@../StyleSheets/main.css" tabClosingPolicy="UNAVAILABLE">
-        <Tab text="Overview">
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="97.0" prefWidth="609.0" />
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tact.threatanalysiscontextualizationtool.MainController">
+    <TabPane fx:id="mainContent" layoutX="223.0" prefHeight="517.0" prefWidth="1100.0" stylesheets="@../StyleSheets/main.css" tabClosingPolicy="UNAVAILABLE">
+        <Tab closable="false" text="Overview">
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="0.0" prefHeight="603.0" prefWidth="1100.0" />
         </Tab>
     </TabPane>
     <Pane fx:id="sidePane" layoutX="-22.0" layoutY="-53.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="690.0" prefWidth="245.0" style="-fx-background-color: grey;">

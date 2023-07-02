@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.ArrayList;
 
-public class VirusTotalFile extends Thread {
+public class VirusTotalFile extends Thread { //TODO -
 
     private final String fileURI;
     private String fileName;
@@ -64,7 +64,7 @@ public class VirusTotalFile extends Thread {
 
     private void fileRating(JavascriptExecutor driverVirusTotal) {
         WebElement vtRating = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#report\").shadowRoot.querySelector(\"div > div.row.mb-4.d-none.d-lg-flex > div.col-auto > vt-ui-community-widget\")");
-        threatRating = Integer.parseInt(vtRating.getAttribute("score"));
+        this.threatRating = Integer.parseInt(vtRating.getAttribute("score"));
     }
 
     private void otherFileNames(JavascriptExecutor driverVirusTotal) {
@@ -72,7 +72,7 @@ public class VirusTotalFile extends Thread {
         for (WebElement name : alias.findElements(By.tagName("span"))){
             if (name.getText().isBlank())
                 continue;
-            fileKnownAliases.add(name.getText().strip());
+            this.fileKnownAliases.add(name.getText().strip());
         }
     }
 

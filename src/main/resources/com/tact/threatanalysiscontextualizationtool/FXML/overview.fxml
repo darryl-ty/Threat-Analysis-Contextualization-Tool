@@ -73,23 +73,23 @@
             <children>
                 <VBox spacing="10.0" GridPane.columnIndex="0">
                     <Label style="-fx-font-size: 18px;" text="File Aliases" />
-                    <TextArea prefHeight="100.0" prefWidth="200.0" />
+               <Label text="This file exhibits suspicious behavior and contains potentially harmful code. Exercise caution when running it." wrapText="true" />
                 </VBox>
 
                    <VBox spacing="10.0" GridPane.columnIndex="1">
                     <Label style="-fx-font-size: 18px;" text="Dropped Files" />
-                    <TextArea prefHeight="100.0" prefWidth="200.0" />
+               <Label text="This file exhibits suspicious behavior and contains potentially harmful code. Exercise caution when running it." wrapText="true" />
                 </VBox>
             <VBox spacing="10.0" GridPane.columnIndex="2">
                <children>
                   <Label style="-fx-font-size: 18px;" text="Contacted IPs" />
-                  <TextArea prefHeight="100.0" prefWidth="200.0" />
+                  <Label text="This file exhibits suspicious behavior and contains potentially harmful code. Exercise caution when running it." wrapText="true" />
                </children>
             </VBox>
             <VBox spacing="10.0" GridPane.columnIndex="3">
                <children>
                   <Label style="-fx-font-size: 18px;" text="Associated Groups" />
-                  <TextArea prefHeight="100.0" prefWidth="200.0" />
+                  <Label text="This file exhibits suspicious behavior and contains potentially harmful code. Exercise caution when running it." wrapText="true" />
                </children>
             </VBox>
             </children>
@@ -100,7 +100,7 @@
 
         <VBox layoutX="14.0" layoutY="333.0" prefHeight="111.0" prefWidth="574.0" spacing="10.0">
             <Label prefWidth="181.0" style="-fx-font-size: 18px;" text="Additional Information" />
-            <Label text="This file exhibits suspicious behavior and contains potentially harmful code. Exercise caution when running it." />
+         <TextArea prefHeight="100.0" prefWidth="200.0" text="This file exhibits suspicious behavior and contains potentially harmful code. Exercise caution when running it." wrapText="true" />
         </VBox>
     </children>
 </AnchorPane>

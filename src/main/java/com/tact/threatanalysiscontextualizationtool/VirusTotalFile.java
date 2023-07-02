@@ -18,15 +18,12 @@ public class VirusTotalFile extends Thread {
     private String[] familyLabels;
     private int threatRating;
 
-    public VirusTotalFile(
-            String fileURI,
-            String fileName,
-            String threatCategories,
-            ArrayList<String> fileKnownAliases){
+    public VirusTotalFile(String fileURI){
         this.fileURI = fileURI;
-        this.fileName = fileName;
-        this.threatCategories = threatCategories;
-        this.fileKnownAliases = fileKnownAliases;
+        this.fileName = "";
+        this.threatCategories = "";
+        this.fileKnownAliases = new ArrayList<>();
+        this.threatRating = 0;
     }
     public void run(){
         WebDriver driver = createWebDriverWithOptions();

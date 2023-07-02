@@ -101,7 +101,7 @@
                <Label text="N/A" wrapText="true" />
                 </VBox>
 
-                   <VBox spacing="10.0" GridPane.columnIndex="1">
+                   <VBox spacing="10.0" GridPane.columnIndex="3">
                     <Label style="-fx-font-size: 18px;" text="Dropped Files" />
                <Label text="N/A" wrapText="true" />
                 </VBox>
@@ -111,9 +111,9 @@
                   <Label text="N/A" wrapText="true" />
                </children>
             </VBox>
-            <VBox spacing="10.0" GridPane.columnIndex="3">
+            <VBox spacing="10.0" GridPane.columnIndex="1">
                <children>
-                  <Label style="-fx-font-size: 18px;" text="Associated Groups" />
+                  <Label style="-fx-font-size: 18px;" text="File Behaviors" />
                   <Label text="N/A" wrapText="true" />
                </children>
             </VBox>

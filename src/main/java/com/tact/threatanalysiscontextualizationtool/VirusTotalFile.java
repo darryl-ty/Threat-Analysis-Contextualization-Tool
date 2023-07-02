@@ -12,18 +12,19 @@ import java.util.ArrayList;
 public class VirusTotalFile extends Thread {
 
     private final String fileURI;
-    private final String fileName;
-    private ArrayList<String> fileKnownAliases;
+    private String fileName;
     private String threatCategories;
-    private String[] familyLabels;
     private int threatRating;
+    private ArrayList<String> fileKnownAliases;
+    private ArrayList<String> behaviorLabels;
 
     public VirusTotalFile(String fileURI){
         this.fileURI = fileURI;
         this.fileName = "";
         this.threatCategories = "";
-        this.fileKnownAliases = new ArrayList<>();
         this.threatRating = 0;
+        this.fileKnownAliases = new ArrayList<>();
+        this.behaviorLabels = new ArrayList<>();
     }
     public void run(){
         WebDriver driver = createWebDriverWithOptions();
@@ -98,5 +99,17 @@ public class VirusTotalFile extends Thread {
 
     public ArrayList<String> getFileKnownAliases(){
         return fileKnownAliases;
+    }
+
+    private void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    private void setThreatCategories(String threatCategories) {
+        this.threatCategories = threatCategories;
+    }
+
+    private void setThreatRating(int threatRating) {
+        this.threatRating = threatRating;
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextArea?>
@@ -26,35 +27,59 @@
                         <Label text="Filename:" />
                         <Label text="sample.exe" />
                     </HBox>
+               <HBox layoutX="10.0" layoutY="47.0" spacing="10.0">
+                  <children>
+                     <Label text="File Type:" />
+                     <Label text="sample.exe" />
+                  </children>
+               </HBox>
                     <HBox spacing="10.0">
                         <Label text="File Size:" />
                         <Label text="3.5 MB" />
                     </HBox>
                     <HBox spacing="10.0">
-                        <Label text="MD5 Hash:" />
-                        <Label text="34cd89c8ab9e0c4d6fd642ee1d798bb2" />
+                        <Label text="SHA256 Hash:" />
+                        <Label text="34cd89c8ab9e0c4d6fd642ee1d798bb2" wrapText="true" />
                     </HBox>
                 </VBox>
 
                 <VBox spacing="10.0" GridPane.columnIndex="1">
                     <Label style="-fx-font-size: 18px;" text="Heuristics Breakdown" textAlignment="CENTER" />
 
-                    <HBox spacing="10.0">
+                    <HBox prefWidth="270.0" spacing="10.0">
                         <Label text="Suspicious Behavior:" />
-                        <ProgressBar prefWidth="200.0" progress="1.0" />
-                        <Label text="80%" />
+                        <ProgressBar prefWidth="200.0" progress="0.76" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></ProgressBar>
+                        <Label text="80%">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin></Label>
                     </HBox>
 
-                    <HBox spacing="10.0">
+                    <HBox spacing="42.0">
                         <Label text="Code Analysis:" />
-                        <ProgressBar prefWidth="200.0" progress="0.6" />
-                        <Label text="60%" />
+                        <ProgressBar prefWidth="200.0" progress="0.6" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></ProgressBar>
+                        <Label text="60%" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets left="-28.0" />
+                     </HBox.margin></Label>
                     </HBox>
 
-                    <HBox spacing="10.0">
+                    <HBox spacing="37.0">
                         <Label text="File Reputation:" />
-                        <ProgressBar prefWidth="200.0" progress="0.4" />
-                        <Label text="40%" />
+                        <ProgressBar prefWidth="200.0" progress="0.4" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></ProgressBar>
+                        <Label text="40%">
+                     <HBox.margin>
+                        <Insets left="-23.0" />
+                     </HBox.margin></Label>
                     </HBox>
                 </VBox>
             </children>
@@ -63,7 +88,7 @@
          </rowConstraints>
         </GridPane>
 
-           <GridPane hgap="10.0" layoutX="14.0" layoutY="183.0" prefWidth="772.0" vgap="10.0">
+           <GridPane hgap="10.0" layoutX="14.0" layoutY="206.0" prefWidth="772.0" vgap="10.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
@@ -73,23 +98,23 @@
             <children>
                 <VBox spacing="10.0" GridPane.columnIndex="0">
                     <Label style="-fx-font-size: 18px;" text="File Aliases" />
-               <Label text="This file exhibits suspicious behavior and contains potentially harmful code. Exercise caution when running it." wrapText="true" />
+               <Label text="N/A" wrapText="true" />
                 </VBox>
 
                    <VBox spacing="10.0" GridPane.columnIndex="1">
                     <Label style="-fx-font-size: 18px;" text="Dropped Files" />
-               <Label text="This file exhibits suspicious behavior and contains potentially harmful code. Exercise caution when running it." wrapText="true" />
+               <Label text="N/A" wrapText="true" />
                 </VBox>
             <VBox spacing="10.0" GridPane.columnIndex="2">
                <children>
                   <Label style="-fx-font-size: 18px;" text="Contacted IPs" />
-                  <Label text="This file exhibits suspicious behavior and contains potentially harmful code. Exercise caution when running it." wrapText="true" />
+                  <Label text="N/A" wrapText="true" />
                </children>
             </VBox>
             <VBox spacing="10.0" GridPane.columnIndex="3">
                <children>
                   <Label style="-fx-font-size: 18px;" text="Associated Groups" />
-                  <Label text="This file exhibits suspicious behavior and contains potentially harmful code. Exercise caution when running it." wrapText="true" />
+                  <Label text="N/A" wrapText="true" />
                </children>
             </VBox>
             </children>

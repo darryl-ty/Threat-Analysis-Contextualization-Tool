@@ -129,7 +129,7 @@ public class MainController{
             VirusTotalFile fileInfo = fileUpload(uploadedFile);
             loadFileWindowTabs(fileInfo);
         } else if (urlSelect) {
-            URL urls = urlUpload(urlAddressBox.getText());
+            URL urlObj = urlUpload(urlAddressBox.getText());
             loadURLWindowTabs();
         } else {
             Alert alert = new Alert(AlertType.ERROR, "Please select either File or URL/IP Address upload type.", ButtonType.OK);
@@ -185,9 +185,9 @@ public class MainController{
     private URL urlUpload(String url){
         disables();
 
-        Talos talos = new Talos();
-        URLVoid urlVoid = new URLVoid();
-        VirusTotalURL vtUrl = new VirusTotalURL();
+        Talos talos = new Talos(url);
+        URLVoid urlVoid = new URLVoid(url);
+        VirusTotalURL vtUrl = new VirusTotalURL(url);
 
         startURLThreads(talos, urlVoid, vtUrl);
 

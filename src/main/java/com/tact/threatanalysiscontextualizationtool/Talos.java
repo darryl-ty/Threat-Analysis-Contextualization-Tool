@@ -1,4 +1,4 @@
 package com.tact.threatanalysiscontextualizationtool;
 
-public class Talos {
+public class Talos extends Thread{
 }

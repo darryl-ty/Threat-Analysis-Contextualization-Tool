@@ -1,4 +1,4 @@
 package com.tact.threatanalysiscontextualizationtool;
 
-public class VirusTotalURL {
+public class VirusTotalURL extends Thread{
 }

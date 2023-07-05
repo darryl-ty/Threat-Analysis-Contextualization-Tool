@@ -7,4 +7,8 @@ public class VirusTotalURL extends Thread{
     public VirusTotalURL(String url){
         this.url = url;
     }
+
+    public void run(){
+
+    }
 }

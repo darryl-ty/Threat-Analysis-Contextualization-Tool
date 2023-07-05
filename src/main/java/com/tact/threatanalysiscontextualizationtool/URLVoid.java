@@ -7,4 +7,8 @@ public class URLVoid extends Thread{
     public URLVoid(String url){
         this.url = url;
     }
+
+    public void run(){
+
+    }
 }

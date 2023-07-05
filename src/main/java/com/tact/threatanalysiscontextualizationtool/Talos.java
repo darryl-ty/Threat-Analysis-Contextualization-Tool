@@ -7,4 +7,8 @@ public class Talos extends Thread{
     public Talos(String url){
         this.url = url;
     }
+
+    public void run(){
+
+    }
 }

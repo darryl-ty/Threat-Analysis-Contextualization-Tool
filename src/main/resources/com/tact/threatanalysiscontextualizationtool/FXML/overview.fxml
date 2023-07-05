@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="rootPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="1100.0" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="1100.0" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tact.threatanalysiscontextualizationtool.VirusTotalFileController">
     <children>
         <Label layoutX="14.0" layoutY="14.0" style="-fx-font-size: 24px;" text="Overview - File Breakdown" />
 
@@ -25,7 +25,7 @@
                     <Label style="-fx-font-size: 18px;" text="File Information" />
                     <HBox spacing="10.0">
                         <Label text="Filename:" />
-                        <Label text="sample.exe" />
+                        <Label fx:id="fileOverviewName" text="sample.exe" />
                     </HBox>
                <HBox layoutX="10.0" layoutY="47.0" spacing="10.0">
                   <children>

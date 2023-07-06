@@ -136,7 +136,7 @@ public class VirusTotalFile extends Thread {
 
     private static void sleepForASecond() {
         try {
-            Thread.sleep(3500);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

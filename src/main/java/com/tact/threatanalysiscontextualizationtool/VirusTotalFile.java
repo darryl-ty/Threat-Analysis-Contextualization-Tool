@@ -81,7 +81,7 @@ public class VirusTotalFile extends Thread {
 
     private void fileRating(JavascriptExecutor driverVirusTotal) {
         WebElement vtRating = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#report\").shadowRoot.querySelector(\"div > div.row.mb-4.d-none.d-lg-flex > div.col-auto > vt-ui-detections-widget\").shadowRoot.querySelector(\"div > div > div.positives\")");
-        this.threatRating = Integer.parseInt(vtRating.getText().strip());
+        threatRating = Integer.parseInt(vtRating.getText().strip());
     }
 
     private void otherFileNames(JavascriptExecutor driverVirusTotal) {
@@ -89,18 +89,18 @@ public class VirusTotalFile extends Thread {
         for (WebElement name : alias.findElements(By.tagName("span"))){
             if (name.getText().isBlank())
                 continue;
-            this.fileKnownAliases.add(name.getText().strip());
+            fileKnownAliases.add(name.getText().strip());
         }
     }
 
     private void typeOfFile(JavascriptExecutor driverVirusTotal){
         WebElement type = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#details\").shadowRoot.querySelector(\"div > vt-ui-expandable:nth-child(1) > span > vt-ui-key-val-table\").shadowRoot.querySelector(\"div > div > div:nth-child(10) > div > a:nth-child(3)\")");
-        this.fileType = type.getText();
+        fileType = type.getText();
     }
 
     private void fileHash(JavascriptExecutor driverVirusTotal) {
         WebElement hash = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#details\").shadowRoot.querySelector(\"div > vt-ui-expandable:nth-child(1) > span > vt-ui-key-val-table\").shadowRoot.querySelector(\"div > div > div:nth-child(3) > div > a:nth-child(3)\")");
-        this.hashValue = hash.getText();
+        hashValue = hash.getText();
     }
 
     private void switchToBehaviorTab(JavascriptExecutor driverVirusTotal) {
@@ -113,7 +113,7 @@ public class VirusTotalFile extends Thread {
         for (WebElement file : drops.findElements(By.tagName("span"))){
             if (file.getText().isBlank())
                 continue;
-            this.droppedFiles.add(file.getText().strip());
+            droppedFiles.add(file.getText().strip());
         }
     }
 
@@ -122,14 +122,14 @@ public class VirusTotalFile extends Thread {
         for (WebElement address : addresses.findElements(By.tagName("span"))){
             if (address.getText().isBlank())
                 continue;
-            this.contactedAddresses.add(address.getText().strip());
+            contactedAddresses.add(address.getText().strip());
         }
     }
     
     private void fileHeuristics(JavascriptExecutor driverVirusTotal) {
         WebElement behaviors = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#report > vt-ui-file-card\").shadowRoot.querySelector(\"div > div.card-body > div > div.hstack.gap-2.flex-wrap\")");
         for (int i = 1; i <= behaviors.findElements(By.tagName("a")).size(); i++){
-            this.behaviorLabels.add(behaviors.findElements(By.tagName("a")).get(i).getText());
+            behaviorLabels.add(behaviors.findElements(By.tagName("a")).get(i).getText());
         }
     }
 
@@ -187,14 +187,14 @@ public class VirusTotalFile extends Thread {
     }
 
     public String toString(){
-        return "File Name: "+ this.fileName +
-                "\nFile Type: " + this.fileType +
-                "\nFile Size:  " + this.fileSize +
-                "\nFile Hash: " + this.hashValue +
-                "\nFile Rating: " + this.threatRating +
-                "\nFile Aliases: " + this.fileKnownAliases +
-                "\nDropped Files: " + this.droppedFiles +
-                "\nContacted Addresses: " + this.contactedAddresses +
-                "\nBehaviors: " + this.behaviorLabels;
+        return "File Name: "+ fileName +
+                "\nFile Type: " + fileType +
+                "\nFile Size:  " + fileSize +
+                "\nFile Hash: " + hashValue +
+                "\nFile Rating: " + threatRating +
+                "\nFile Aliases: " + fileKnownAliases +
+                "\nDropped Files: " + droppedFiles +
+                "\nContacted Addresses: " + contactedAddresses +
+                "\nBehaviors: " + behaviorLabels;
     }
 }

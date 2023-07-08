@@ -17,7 +17,7 @@ import java.io.IOException;
 public class MainController{
 
     private final String[] FILE_TABS = new String[]{"VirusTotal"};
-    private final String[] URL_TABS = new String[]{"VirusTotal", "Talos", "URLVoid"};
+    private final String[] URL_TABS = new String[]{"VirusTotal", "URLVoid"};
     private File uploadedFile;
     private boolean fileSelect;
     private boolean urlSelect;
@@ -130,7 +130,7 @@ public class MainController{
             loadFileWindowTabs(fileInfo);
         } else if (urlSelect) {
             URL urlObj = urlUpload(urlAddressBox.getText());
-            loadURLWindowTabs();
+            loadURLWindowTabs(urlObj);
         } else {
             Alert alert = new Alert(AlertType.ERROR, "Please select either File or URL/IP Address upload type.", ButtonType.OK);
             alert.showAndWait();
@@ -148,6 +148,9 @@ public class MainController{
         VirusTotalFile vt = new VirusTotalFile(file.getPath());
         vt.start();
         vt.setFileSize(file.length() / 1024);
+        while(vt.isAlive()){
+            continue;
+        }
 
         return vt;
     }
@@ -172,15 +175,19 @@ public class MainController{
 //            AnchorPane.setRightAnchor(newPane, 0.0);
 //            AnchorPane.setTopAnchor(newPane, 0.0);
 
+//            loadFileInfo(fileInfo);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
-//    private void loadFileInfo(VirusTotalFile inputFile){ //TODO - Figure out how to load info into FXML file that is loaded after the fact.
-//        System.out.println(fileOverviewName.getText());
-//    }
+    private void loadFileInfo(VirusTotalFile inputFile){ //TODO - Figure out how to load info into FXML file that is loaded after the fact.
+        System.out.println(fileOverviewName.getText());
+        fileOverviewName.setText(inputFile.getFileName());
+        System.out.println(fileOverviewName.getText());
+    }
 
     private URL urlUpload(String url){
         disables();
@@ -195,12 +202,16 @@ public class MainController{
     }
 
     private void startURLThreads(Talos talos, URLVoid urlVoid, VirusTotalURL vtUrl) {
-        talos.start();
-        urlVoid.start();
+//        talos.start();
+//        urlVoid.start();
         vtUrl.start();
+        while (vtUrl.isAlive()){
+            continue;
+        }
     }
 
-    private void loadURLWindowTabs() {
+    private void loadURLWindowTabs(URL urlObj) {
+        System.out.println(urlObj.vtURL());
     }
 
     private void disables(){

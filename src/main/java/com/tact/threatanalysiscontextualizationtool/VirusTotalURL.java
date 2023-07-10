@@ -67,9 +67,9 @@ public class VirusTotalURL extends Thread{
         for(WebElement characteristic : characteristics.findElements(By.tagName("div"))){
             if (characteristic.getText().isBlank())
                 continue;
-            if (urlCategories.contains(characteristic.getText()))
+            if (urlCategories.contains(characteristic.getText().strip()))
                 continue;
-            urlCategories.add(characteristic.getText());
+            urlCategories.add(characteristic.getText().strip());
         }
     }
 

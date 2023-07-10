@@ -46,8 +46,8 @@ public class VirusTotalURL extends Thread{
         searchBar.sendKeys(Keys.ENTER);
     }
 
-    private void navigateToDetailsTab(JavascriptExecutor driverVirusTotal){ // TODO - figure out why details tab wont get clicked.
-        WebElement detailsTab = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#report\").shadowRoot.querySelector(\"div > div:nth-child(2) > div > ul > li:nth-child(3) > a\")");
+    private void navigateToDetailsTab(JavascriptExecutor driverVirusTotal){
+        WebElement detailsTab = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > url-view\").shadowRoot.querySelector(\"#report\").shadowRoot.querySelector(\"div > div:nth-child(2) > div > ul > li:nth-child(3) > a\")");
         detailsTab.click();
     }
 
@@ -65,7 +65,11 @@ public class VirusTotalURL extends Thread{
     private void urlCharacteristics(JavascriptExecutor driverVirusTotal) {
         WebElement characteristics = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > url-view\").shadowRoot.querySelector(\"#details\").shadowRoot.querySelector(\"div > vt-ui-expandable:nth-child(1) > span > vt-ui-key-val-table\").shadowRoot.querySelector(\"div > div\")");
         for(WebElement characteristic : characteristics.findElements(By.tagName("div"))){
-            System.out.println(characteristic.getText());
+            if (characteristic.getText().isBlank())
+                continue;
+            if (urlCategories.contains(characteristic.getText()))
+                continue;
+            urlCategories.add(characteristic.getText());
         }
     }
 
@@ -87,5 +91,15 @@ public class VirusTotalURL extends Thread{
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "VirusTotalURL{" +
+                "url='" + url + '\'' +
+                ", finalURL='" + finalURL + '\'' +
+                ", urlCategories=" + urlCategories +
+                ", webRating=" + webRating +
+                '}';
     }
 }

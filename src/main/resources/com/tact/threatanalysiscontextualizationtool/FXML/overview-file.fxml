@@ -11,121 +11,120 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="rootPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="1100.0" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tact.threatanalysiscontextualizationtool.MainController">
-    <children>
-        <Label layoutX="14.0" layoutY="14.0" style="-fx-font-size: 24px;" text="Overview - File Breakdown" />
+<AnchorPane fx:id="rootPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="600.0"
+            minWidth="1100.0" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.tact.threatanalysiscontextualizationtool.MainController">
+    <Label layoutX="14.0" layoutY="14.0" style="-fx-font-size: 24px;" text="Overview - File Breakdown"/>
 
-        <GridPane hgap="10.0" layoutX="14.0" layoutY="54.0" prefWidth="772.0" vgap="10.0">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="406.0" minWidth="0.0" prefWidth="321.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="472.0" minWidth="10.0" prefWidth="405.0" />
-            </columnConstraints>
-            <children>
-                <VBox spacing="10.0" GridPane.columnIndex="0">
-                    <Label style="-fx-font-size: 18px;" text="File Information" />
-                    <HBox spacing="10.0">
-                        <Label text="Filename:" />
-                        <Label fx:id="fileOverviewName" text="sample.exe" />
-                    </HBox>
-               <HBox layoutX="10.0" layoutY="47.0" spacing="10.0">
-                  <children>
-                     <Label text="File Type:" />
-                     <Label text="sample.exe" />
-                  </children>
-               </HBox>
-                    <HBox spacing="10.0">
-                        <Label text="File Size:" />
-                        <Label text="3.5 MB" />
-                    </HBox>
-                    <HBox spacing="10.0">
-                        <Label text="SHA256 Hash:" />
-                        <Label text="34cd89c8ab9e0c4d6fd642ee1d798bb2" wrapText="true" />
-                    </HBox>
-                </VBox>
-
-                <VBox spacing="10.0" GridPane.columnIndex="1">
-                    <Label style="-fx-font-size: 18px;" text="Heuristics Breakdown" textAlignment="CENTER" />
-
-                    <HBox prefWidth="270.0" spacing="10.0">
-                        <Label text="Suspicious Behavior:" />
-                        <ProgressBar prefWidth="200.0" progress="0.76" HBox.hgrow="NEVER">
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin></ProgressBar>
-                        <Label text="80%">
-                     <HBox.margin>
-                        <Insets left="5.0" />
-                     </HBox.margin></Label>
-                    </HBox>
-
-                    <HBox spacing="42.0">
-                        <Label text="Code Analysis:" />
-                        <ProgressBar prefWidth="200.0" progress="0.6" HBox.hgrow="NEVER">
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin></ProgressBar>
-                        <Label text="60%" HBox.hgrow="NEVER">
-                     <HBox.margin>
-                        <Insets left="-28.0" />
-                     </HBox.margin></Label>
-                    </HBox>
-
-                    <HBox spacing="37.0">
-                        <Label text="File Reputation:" />
-                        <ProgressBar prefWidth="200.0" progress="0.4" HBox.hgrow="NEVER">
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin></ProgressBar>
-                        <Label text="40%">
-                     <HBox.margin>
-                        <Insets left="-23.0" />
-                     </HBox.margin></Label>
-                    </HBox>
-                </VBox>
-            </children>
-         <rowConstraints>
-            <RowConstraints />
-         </rowConstraints>
-        </GridPane>
-
-           <GridPane hgap="10.0" layoutX="14.0" layoutY="206.0" prefWidth="772.0" vgap="10.0">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
-            </columnConstraints>
-            <children>
-                <VBox spacing="10.0" GridPane.columnIndex="0">
-                    <Label style="-fx-font-size: 18px;" text="File Aliases" />
-               <Label text="N/A" wrapText="true" />
-                </VBox>
-
-                   <VBox spacing="10.0" GridPane.columnIndex="3">
-                    <Label style="-fx-font-size: 18px;" text="Dropped Files" />
-               <Label text="N/A" wrapText="true" />
-                </VBox>
-            <VBox spacing="10.0" GridPane.columnIndex="2">
-               <children>
-                  <Label style="-fx-font-size: 18px;" text="Contacted IPs" />
-                  <Label text="N/A" wrapText="true" />
-               </children>
-            </VBox>
-            <VBox spacing="10.0" GridPane.columnIndex="1">
-               <children>
-                  <Label style="-fx-font-size: 18px;" text="File Behaviors" />
-                  <Label text="N/A" wrapText="true" />
-               </children>
-            </VBox>
-            </children>
-         <rowConstraints>
-            <RowConstraints />
-         </rowConstraints>
-        </GridPane>
-
-        <VBox layoutX="14.0" layoutY="333.0" prefHeight="111.0" prefWidth="574.0" spacing="10.0">
-            <Label prefWidth="181.0" style="-fx-font-size: 18px;" text="Additional Information" />
-         <TextArea prefHeight="100.0" prefWidth="200.0" text="This file exhibits suspicious behavior and contains potentially harmful code. Exercise caution when running it." wrapText="true" />
+    <GridPane hgap="10.0" layoutX="14.0" layoutY="54.0" prefWidth="772.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="406.0" minWidth="0.0" prefWidth="321.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="472.0" minWidth="10.0" prefWidth="405.0"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints/>
+        </rowConstraints>
+        <VBox spacing="10.0" GridPane.columnIndex="0">
+            <Label style="-fx-font-size: 18px;" text="File Information"/>
+            <HBox spacing="10.0">
+                <Label text="Filename:"/>
+                <Label fx:id="fileOverviewName" text="sample.exe"/>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="47.0" spacing="10.0">
+                <Label text="File Type:"/>
+                <Label text="sample.exe"/>
+            </HBox>
+            <HBox spacing="10.0">
+                <Label text="File Size:"/>
+                <Label text="3.5 MB"/>
+            </HBox>
+            <HBox spacing="10.0">
+                <Label text="SHA256 Hash:"/>
+                <Label text="34cd89c8ab9e0c4d6fd642ee1d798bb2" wrapText="true"/>
+            </HBox>
         </VBox>
-    </children>
+
+        <VBox spacing="10.0" GridPane.columnIndex="1">
+            <Label style="-fx-font-size: 18px;" text="Heuristics Breakdown" textAlignment="CENTER"/>
+
+            <HBox prefWidth="270.0" spacing="10.0">
+                <Label text="Suspicious Behavior:"/>
+                <ProgressBar prefWidth="200.0" progress="0.76" HBox.hgrow="NEVER">
+                    <HBox.margin>
+                        <Insets left="10.0"/>
+                    </HBox.margin>
+                </ProgressBar>
+                <Label text="80%">
+                    <HBox.margin>
+                        <Insets left="5.0"/>
+                    </HBox.margin>
+                </Label>
+            </HBox>
+
+            <HBox spacing="42.0">
+                <Label text="Code Analysis:"/>
+                <ProgressBar prefWidth="200.0" progress="0.6" HBox.hgrow="NEVER">
+                    <HBox.margin>
+                        <Insets left="10.0"/>
+                    </HBox.margin>
+                </ProgressBar>
+                <Label text="60%" HBox.hgrow="NEVER">
+                    <HBox.margin>
+                        <Insets left="-28.0"/>
+                    </HBox.margin>
+                </Label>
+            </HBox>
+
+            <HBox spacing="37.0">
+                <Label text="File Reputation:"/>
+                <ProgressBar prefWidth="200.0" progress="0.4" HBox.hgrow="NEVER">
+                    <HBox.margin>
+                        <Insets left="10.0"/>
+                    </HBox.margin>
+                </ProgressBar>
+                <Label text="40%">
+                    <HBox.margin>
+                        <Insets left="-23.0"/>
+                    </HBox.margin>
+                </Label>
+            </HBox>
+        </VBox>
+    </GridPane>
+
+    <GridPane hgap="10.0" layoutX="14.0" layoutY="206.0" prefWidth="772.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints/>
+        </rowConstraints>
+        <VBox spacing="10.0" GridPane.columnIndex="0">
+            <Label style="-fx-font-size: 18px;" text="File Aliases"/>
+            <Label text="N/A" wrapText="true"/>
+        </VBox>
+
+        <VBox spacing="10.0" GridPane.columnIndex="3">
+            <Label style="-fx-font-size: 18px;" text="Dropped Files"/>
+            <Label text="N/A" wrapText="true"/>
+        </VBox>
+        <VBox spacing="10.0" GridPane.columnIndex="2">
+            <Label style="-fx-font-size: 18px;" text="Contacted IPs"/>
+            <Label text="N/A" wrapText="true"/>
+        </VBox>
+        <VBox spacing="10.0" GridPane.columnIndex="1">
+            <Label style="-fx-font-size: 18px;" text="File Behaviors"/>
+            <Label text="N/A" wrapText="true"/>
+        </VBox>
+    </GridPane>
+
+    <VBox layoutX="14.0" layoutY="333.0" prefHeight="111.0" prefWidth="574.0" spacing="10.0">
+        <Label prefWidth="181.0" style="-fx-font-size: 18px;" text="Additional Information"/>
+        <TextArea prefHeight="100.0" prefWidth="200.0"
+                  text="This file exhibits suspicious behavior and contains potentially harmful code. Exercise caution when running it."
+                  wrapText="true"/>
+    </VBox>
 </AnchorPane>

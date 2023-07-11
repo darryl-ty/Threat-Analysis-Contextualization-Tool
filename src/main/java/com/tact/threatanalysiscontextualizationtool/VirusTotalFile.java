@@ -1,9 +1,6 @@
 package com.tact.threatanalysiscontextualizationtool;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -118,17 +115,21 @@ public class VirusTotalFile extends Thread {
     }
 
     private void fileContactedAddresses(JavascriptExecutor driverVirusTotal) {
-        WebElement addresses = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#behaviourtab\").shadowRoot.querySelector(\"#sandbox-behaviour\").shadowRoot.querySelector(\"network-communication\").shadowRoot.querySelector(\"#network-comms > span > div > vt-ui-expandable-entry:nth-child(2) > span > div > vt-ui-simple-multipivots-expandable-list\").shadowRoot.querySelector(\"ul\")");
-        for (WebElement address : addresses.findElements(By.tagName("span"))){
-            if (address.getText().isBlank())
-                continue;
-            contactedAddresses.add(address.getText().strip());
+        try{
+            WebElement addresses = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#behaviourtab\").shadowRoot.querySelector(\"#sandbox-behaviour\").shadowRoot.querySelector(\"network-communication\").shadowRoot.querySelector(\"#network-comms > span > div > vt-ui-expandable-entry:nth-child(2) > span > div > vt-ui-simple-multipivots-expandable-list\").shadowRoot.querySelector(\"ul\")");
+            for (WebElement address : addresses.findElements(By.tagName("span"))){
+                if (address.getText().isBlank())
+                    continue;
+                contactedAddresses.add(address.getText().strip());
+            }
+        } catch (JavascriptException e){
+            e.printStackTrace();
         }
     }
     
     private void fileHeuristics(JavascriptExecutor driverVirusTotal) {
         WebElement behaviors = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#report > vt-ui-file-card\").shadowRoot.querySelector(\"div > div.card-body > div > div.hstack.gap-2.flex-wrap\")");
-        for (int i = 1; i <= behaviors.findElements(By.tagName("a")).size(); i++){
+        for (int i = 1; i < behaviors.findElements(By.tagName("a")).size(); i++){
             behaviorLabels.add(behaviors.findElements(By.tagName("a")).get(i).getText());
         }
     }
@@ -136,7 +137,7 @@ public class VirusTotalFile extends Thread {
 
     private static void sleepForASecond() {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

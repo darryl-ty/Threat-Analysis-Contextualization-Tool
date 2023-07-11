@@ -153,16 +153,16 @@ public class MainController{
         return new FILE(vt);
     }
 
-    private void loadFileWindowTabs(FILE infoFiles){
-        OverviewFileController overviewController = new OverviewFileController(infoFiles);
-//        VirusTotalFileController vtController = new VirusTotalFileController(infoFiles.vtFile());
+    private void loadFileWindowTabs(FILE infoObjects){
+        OverviewFileController overviewController = new OverviewFileController(infoObjects);
+        VirusTotalFileController vtController = new VirusTotalFileController(infoObjects.vtFile());
 
         try { //TODO - Figure out a better way to load the FXML panes instead of using redundant code.
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("/com/tact/threatanalysiscontextualizationtool/FXML/overview-file.fxml"));
             FXMLLoader loader2 = new FXMLLoader(Main.class.getResource("/com/tact/threatanalysiscontextualizationtool/FXML/virus-total-file.fxml"));
 
             loader.setController(overviewController);
-//            loader2.setController(vtController);
+            loader2.setController(vtController);
 
             AnchorPane overviewPane = loader.load();
             AnchorPane vtPane = loader2.load();

@@ -46,6 +46,7 @@ dependencies {
     implementation 'org.seleniumhq.selenium:selenium-java:4.10.0'
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
 

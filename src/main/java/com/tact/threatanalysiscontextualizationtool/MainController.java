@@ -44,8 +44,6 @@ public class MainController{
     private Button redoButton;
     @FXML
     private Button submitButton;
-    @FXML
-    private Label fileOverviewName;
 
 
     @FXML
@@ -126,7 +124,7 @@ public class MainController{
 
     public void submitSelection(ActionEvent event){
         if (fileSelect){
-            VirusTotalFile fileInfo = fileUpload(uploadedFile);
+            FILE fileInfo = fileUpload(uploadedFile);
             loadFileWindowTabs(fileInfo);
         } else if (urlSelect) {
             URL urlObj = urlUpload(urlAddressBox.getText());
@@ -142,7 +140,7 @@ public class MainController{
 
     }
 
-    private VirusTotalFile fileUpload(File file){
+    private FILE fileUpload(File file){
         disables();
 
         VirusTotalFile vt = new VirusTotalFile(file.getPath());
@@ -152,13 +150,20 @@ public class MainController{
             continue;
         }
 
-        return vt;
+        return new FILE(vt);
     }
 
-    private void loadFileWindowTabs(VirusTotalFile fileInfo){
+    private void loadFileWindowTabs(FILE infoFiles){
+        OverviewFileController overviewController = new OverviewFileController(infoFiles);
+//        VirusTotalFileController vtController = new VirusTotalFileController(infoFiles.vtFile());
+
         try { //TODO - Figure out a better way to load the FXML panes instead of using redundant code.
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("/com/tact/threatanalysiscontextualizationtool/FXML/overview-file.fxml"));
             FXMLLoader loader2 = new FXMLLoader(Main.class.getResource("/com/tact/threatanalysiscontextualizationtool/FXML/virus-total-file.fxml"));
+
+            loader.setController(overviewController);
+//            loader2.setController(vtController);
+
             AnchorPane overviewPane = loader.load();
             AnchorPane vtPane = loader2.load();
 
@@ -175,18 +180,12 @@ public class MainController{
 //            AnchorPane.setRightAnchor(newPane, 0.0);
 //            AnchorPane.setTopAnchor(newPane, 0.0);
 
-//            loadFileInfo(fileInfo);
+            disables();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-    }
-
-    private void loadFileInfo(VirusTotalFile inputFile){ //TODO - Figure out how to load info into FXML file that is loaded after the fact.
-        System.out.println(fileOverviewName.getText());
-        fileOverviewName.setText(inputFile.getFileName());
-        System.out.println(fileOverviewName.getText());
     }
 
     private URL urlUpload(String url){

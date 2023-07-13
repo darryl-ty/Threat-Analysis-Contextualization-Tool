@@ -115,15 +115,11 @@ public class VirusTotalFile extends Thread {
     }
 
     private void fileContactedAddresses(JavascriptExecutor driverVirusTotal) {
-        try{
-            WebElement addresses = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#behaviourtab\").shadowRoot.querySelector(\"#sandbox-behaviour\").shadowRoot.querySelector(\"network-communication\").shadowRoot.querySelector(\"#network-comms > span > div > vt-ui-expandable-entry:nth-child(2) > span > div > vt-ui-simple-multipivots-expandable-list\").shadowRoot.querySelector(\"ul\")");
-            for (WebElement address : addresses.findElements(By.tagName("span"))){
-                if (address.getText().isBlank())
-                    continue;
-                contactedAddresses.add(address.getText().strip());
-            }
-        } catch (JavascriptException e){
-            e.printStackTrace();
+        WebElement addresses = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#behaviourtab\").shadowRoot.querySelector(\"#sandbox-behaviour\").shadowRoot.querySelector(\"network-communication\").shadowRoot.querySelector(\"#network-comms > span > div > vt-ui-expandable-entry > span > div > vt-ui-simple-multipivots-expandable-list\").shadowRoot.querySelector(\"ul\")");
+        for (WebElement address : addresses.findElements(By.tagName("span"))){
+            if (address.getText().isBlank())
+                continue;
+            contactedAddresses.add(address.getText().strip());
         }
     }
     

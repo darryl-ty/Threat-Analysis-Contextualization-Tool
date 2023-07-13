@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label layoutX="14.0" layoutY="14.0" style="-fx-font-size: 24px;" text="URL Analysis" />
+
+        <GridPane hgap="10.0" layoutX="14.0" layoutY="54.0" prefWidth="772.0" vgap="10.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.0" minWidth="10.0" prefWidth="376.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="549.0" minWidth="10.0" prefWidth="366.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="0.0" prefWidth="0.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="0.0" prefWidth="0.0" />
+            </columnConstraints>
+            <children>
+                <VBox spacing="10.0" GridPane.columnIndex="0">
+                    <Label style="-fx-font-size: 18px;" text="URL Information" />
+                    <HBox spacing="10.0">
+                        <Label text="URL:" />
+                        <Label text="http://example.com/malicious" />
+                    </HBox>
+                    <HBox spacing="10.0">
+                        <Label text="Host:" />
+                        <Label text="example.com" />
+                    </HBox>
+                    <HBox spacing="10.0">
+                        <Label text="IP Address:" />
+                        <Label text="192.168.0.1" />
+                    </HBox>
+                </VBox>
+
+                <VBox spacing="10.0" GridPane.columnIndex="1">
+                    <Label style="-fx-font-size: 18px;" text="Risk Level" />
+
+                    <HBox spacing="10.0">
+                        <Label text="Malware Detection:" />
+                        <ProgressBar prefWidth="200.0" progress="0.8" />
+                        <Label text="80%" />
+                    </HBox>
+
+                    <HBox spacing="10.0">
+                        <Label text="Phishing Detection:" />
+                        <ProgressBar prefWidth="200.0" progress="0.6" />
+                        <Label text="60%" />
+                    </HBox>
+
+                    <HBox spacing="10.0">
+                        <Label text="Suspicious Content:" />
+                        <ProgressBar prefWidth="200.0" progress="0.4" />
+                        <Label text="40%" />
+                    </HBox>
+                </VBox>
+            </children>
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+
+        <VBox layoutX="14.0" layoutY="284.0" spacing="10.0">
+            <Label style="-fx-font-size: 18px;" text="Additional Information" />
+            <Label text="This URL is flagged as malicious and contains potentially harmful content. Do not visit this website." />
+        </VBox>
+
+        <GridPane hgap="10.0" layoutX="14.0" layoutY="394.0" prefWidth="772.0" vgap="10.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="400.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="400.0" />
+            </columnConstraints>
+            <children>
+                <VBox spacing="10.0" GridPane.columnIndex="0">
+                    <Label style="-fx-font-size: 18px;" text="URL Aliases" />
+                    <TextArea prefHeight="100.0" prefWidth="400.0" />
+                </VBox>
+
+                <VBox spacing="10.0" GridPane.columnIndex="1">
+                    <Label style="-fx-font-size: 18px;" text="Associated Domains" />
+                    <TextArea prefHeight="100.0" prefWidth="400.0" />
+                </VBox>
+            </children>
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+    </children>
+</AnchorPane>

@@ -106,27 +106,42 @@ public class VirusTotalFile extends Thread {
         }
 
     private void fileDrops(JavascriptExecutor driverVirusTotal) {
-        WebElement drops = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#behaviourtab\").shadowRoot.querySelector(\"#sandbox-behaviour\").shadowRoot.querySelector(\"file-system-actions\").shadowRoot.querySelector(\"#files-dropped > span > div > vt-ui-simple-expandable-list\").shadowRoot.querySelector(\"ul\")");
-        for (WebElement file : drops.findElements(By.tagName("span"))){
-            if (file.getText().isBlank())
-                continue;
-            droppedFiles.add(file.getText().strip());
+        try {
+            WebElement drops = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#behaviourtab\").shadowRoot.querySelector(\"#sandbox-behaviour\").shadowRoot.querySelector(\"file-system-actions\").shadowRoot.querySelector(\"#files-dropped > span > div > vt-ui-simple-expandable-list\").shadowRoot.querySelector(\"ul\")");
+            for (WebElement file : drops.findElements(By.tagName("span"))) {
+                if (file.getText().isBlank())
+                    continue;
+                droppedFiles.add(file.getText().strip());
+            }
+        } catch (JavascriptException e){
+            e.printStackTrace();
+            droppedFiles.add("Could not obtain dropped files.");
         }
     }
 
     private void fileContactedAddresses(JavascriptExecutor driverVirusTotal) {
-        WebElement addresses = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#behaviourtab\").shadowRoot.querySelector(\"#sandbox-behaviour\").shadowRoot.querySelector(\"network-communication\").shadowRoot.querySelector(\"#network-comms > span > div > vt-ui-expandable-entry > span > div > vt-ui-simple-multipivots-expandable-list\").shadowRoot.querySelector(\"ul\")");
-        for (WebElement address : addresses.findElements(By.tagName("span"))){
-            if (address.getText().isBlank())
-                continue;
-            contactedAddresses.add(address.getText().strip());
+        try {
+            WebElement addresses = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#behaviourtab\").shadowRoot.querySelector(\"#sandbox-behaviour\").shadowRoot.querySelector(\"network-communication\").shadowRoot.querySelector(\"#network-comms > span > div > vt-ui-expandable-entry > span > div > vt-ui-simple-multipivots-expandable-list\").shadowRoot.querySelector(\"ul\")");
+            for (WebElement address : addresses.findElements(By.tagName("span"))) {
+                if (address.getText().isBlank())
+                    continue;
+                contactedAddresses.add(address.getText().strip());
+            }
+        } catch (JavascriptException e){
+            e.printStackTrace();
+            contactedAddresses.add("Could not obtain contacted IPs.");
         }
     }
     
     private void fileHeuristics(JavascriptExecutor driverVirusTotal) {
-        WebElement behaviors = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#report > vt-ui-file-card\").shadowRoot.querySelector(\"div > div.card-body > div > div.hstack.gap-2.flex-wrap\")");
-        for (int i = 1; i < behaviors.findElements(By.tagName("a")).size(); i++){
-            behaviorLabels.add(behaviors.findElements(By.tagName("a")).get(i).getText());
+        try {
+            WebElement behaviors = (WebElement) driverVirusTotal.executeScript("return document.querySelector(\"#view-container > file-view\").shadowRoot.querySelector(\"#report > vt-ui-file-card\").shadowRoot.querySelector(\"div > div.card-body > div > div.hstack.gap-2.flex-wrap\")");
+            for (int i = 1; i < behaviors.findElements(By.tagName("a")).size(); i++) {
+                behaviorLabels.add(behaviors.findElements(By.tagName("a")).get(i).getText());
+            }
+        } catch (JavascriptException e){
+            e.printStackTrace();
+            behaviorLabels.add("Could not obtain File Heuristics.");
         }
     }
 

@@ -78,7 +78,7 @@ public class OverviewFileController {
         StringBuilder aliasBuilder = new StringBuilder();
 
         for(String alias : overview.vtFile().getFileKnownAliases()){
-            aliasBuilder.append("• " + alias + "\n");
+            aliasBuilder.append("• ").append(alias).append("\n");
         }
         fileAliases.setText(aliasBuilder.toString());
     }
@@ -87,7 +87,7 @@ public class OverviewFileController {
         StringBuilder behaviorBuilder = new StringBuilder();
 
         for(String behavior : overview.vtFile().getBehaviorLabels()){
-            behaviorBuilder.append("• " + behavior + "\n");
+            behaviorBuilder.append("• ").append(behavior).append("\n");
         }
         fileBehaviors.setText(behaviorBuilder.toString());
     }
@@ -96,7 +96,7 @@ public class OverviewFileController {
         StringBuilder addressBuilder = new StringBuilder();
 
         for(String addresses : overview.vtFile().getContactedAddresses()){
-            addressBuilder.append("• " + addresses + "\n");
+            addressBuilder.append("• ").append(addresses).append("\n");
         }
         fileIPS.setText(addressBuilder.toString());
     }
@@ -105,7 +105,7 @@ public class OverviewFileController {
         StringBuilder dropBuilder = new StringBuilder();
 
         for(String droppedFile : overview.vtFile().getDroppedFiles()){
-            dropBuilder.append("• " + droppedFile.split("\\d")[droppedFile.split("\\d").length-1] + "\n");
+            dropBuilder.append("• ").append(droppedFile.split("\\d")[droppedFile.split("\\d").length - 1]).append("\n");
         }
         fileDrops.setText(dropBuilder.toString());
     }

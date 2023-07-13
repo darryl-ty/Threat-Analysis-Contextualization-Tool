@@ -89,7 +89,7 @@
         </VBox>
     </GridPane>
 
-    <GridPane hgap="10.0" layoutX="14.0" layoutY="206.0" prefWidth="772.0" vgap="10.0">
+    <GridPane hgap="10.0" layoutX="14.0" layoutY="206.0" maxHeight="-Infinity" prefHeight="195.0" prefWidth="772.0" vgap="10.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
@@ -99,27 +99,27 @@
         <rowConstraints>
             <RowConstraints />
         </rowConstraints>
-        <VBox spacing="10.0" GridPane.columnIndex="0">
+        <VBox prefHeight="240.0" prefWidth="185.0" spacing="10.0" GridPane.columnIndex="0" GridPane.hgrow="NEVER">
             <Label style="-fx-font-size: 18px;" text="File Aliases" />
-            <Label text="N/A" wrapText="true" />
+            <Label fx:id="fileAliases" text="N/A" wrapText="true" />
         </VBox>
 
-        <VBox spacing="10.0" GridPane.columnIndex="3">
+        <VBox spacing="10.0" GridPane.columnIndex="3" GridPane.hgrow="NEVER">
             <Label style="-fx-font-size: 18px;" text="Dropped Files" />
-            <Label text="N/A" wrapText="true" />
+            <Label fx:id="fileDrops" text="N/A" wrapText="true" />
         </VBox>
-        <VBox spacing="10.0" GridPane.columnIndex="2">
+        <VBox spacing="10.0" GridPane.columnIndex="2" GridPane.hgrow="NEVER">
             <Label style="-fx-font-size: 18px;" text="Contacted IPs" />
-            <Label text="N/A" wrapText="true" />
+            <Label fx:id="fileIPS" text="N/A" wrapText="true" />
         </VBox>
-        <VBox spacing="10.0" GridPane.columnIndex="1">
+        <VBox spacing="10.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER">
             <Label style="-fx-font-size: 18px;" text="File Behaviors" />
-            <Label text="N/A" wrapText="true" />
+            <Label fx:id="fileBehaviors" text="N/A" wrapText="true" />
         </VBox>
     </GridPane>
 
-    <VBox layoutX="14.0" layoutY="333.0" prefHeight="111.0" prefWidth="574.0" spacing="10.0">
+    <VBox layoutX="14.0" layoutY="400.0" prefHeight="111.0" prefWidth="574.0" spacing="10.0">
         <Label prefWidth="181.0" style="-fx-font-size: 18px;" text="Additional Information" />
-        <TextArea prefHeight="100.0" prefWidth="200.0" text="This file exhibits suspicious behavior and contains potentially harmful code. Exercise caution when running it." wrapText="true" />
+        <TextArea fx:id="fileAdditionInfo" prefHeight="100.0" prefWidth="200.0" text="This file exhibits suspicious behavior and contains potentially harmful code. Exercise caution when running it." wrapText="true" />
     </VBox>
 </AnchorPane>

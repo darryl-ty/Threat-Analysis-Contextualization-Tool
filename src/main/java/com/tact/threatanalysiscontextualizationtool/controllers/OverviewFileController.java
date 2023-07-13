@@ -1,5 +1,6 @@
-package com.tact.threatanalysiscontextualizationtool;
+package com.tact.threatanalysiscontextualizationtool.controllers;
 
+import com.tact.threatanalysiscontextualizationtool.records.FILE;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -95,7 +96,7 @@ public class OverviewFileController {
         StringBuilder addressBuilder = new StringBuilder();
 
         for(String addresses : overview.vtFile().getContactedAddresses()){
-            addressBuilder.append("• " + addresses.split("\\d")[addresses.split("\\d").length-1] + "\n");
+            addressBuilder.append("• " + addresses + "\n");
         }
         fileIPS.setText(addressBuilder.toString());
     }
@@ -104,20 +105,23 @@ public class OverviewFileController {
         StringBuilder dropBuilder = new StringBuilder();
 
         for(String droppedFile : overview.vtFile().getDroppedFiles()){
-            dropBuilder.append("• " + droppedFile + "\n");
+            dropBuilder.append("• " + droppedFile.split("\\d")[droppedFile.split("\\d").length-1] + "\n");
         }
         fileDrops.setText(dropBuilder.toString());
     }
 
     private void populateAdditionalInfo() {
         switch (fileSev) {
-            case SAFE -> fileAdditionInfo.setText("This file appears to be safe.");
+            case SAFE ->
+                    fileAdditionInfo.setText("This file appears to be safe.");
             case SUSPICIOUS ->
                     fileAdditionInfo.setText("This file exhibits suspicious behavior or potentially contains harmful code. " +
                             "Exercise caution when running it.");
             case MALICIOUS ->
                     fileAdditionInfo.setText("This file exhibits malicious behavior and contains harmful code. " +
                             "If run, it could damage your computer. Be careful.");
+            default ->
+                    fileAdditionInfo.setText("Could not assess file severity. Use caution when analyzing.");
         }
     }
 }

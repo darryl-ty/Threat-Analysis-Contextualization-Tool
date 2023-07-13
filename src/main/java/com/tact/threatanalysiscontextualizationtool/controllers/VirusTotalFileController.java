@@ -1,4 +1,6 @@
-package com.tact.threatanalysiscontextualizationtool;
+package com.tact.threatanalysiscontextualizationtool.controllers;
+
+import com.tact.threatanalysiscontextualizationtool.VirusTotalFile;
 
 public class VirusTotalFileController {
     private VirusTotalFile vt;

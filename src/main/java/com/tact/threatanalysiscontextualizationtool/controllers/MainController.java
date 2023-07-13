@@ -1,5 +1,8 @@
-package com.tact.threatanalysiscontextualizationtool;
+package com.tact.threatanalysiscontextualizationtool.controllers;
 
+import com.tact.threatanalysiscontextualizationtool.*;
+import com.tact.threatanalysiscontextualizationtool.records.FILE;
+import com.tact.threatanalysiscontextualizationtool.records.URL;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

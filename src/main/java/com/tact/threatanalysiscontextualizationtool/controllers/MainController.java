@@ -198,7 +198,7 @@ public class MainController{
         URLVoid urlVoid = new URLVoid(url);
         VirusTotalURL vtUrl = new VirusTotalURL(url);
 
-        startURLThreads(talos, urlVoid, vtUrl);
+//        startURLThreads(talos, urlVoid, vtUrl);
 
         return new URL(talos, urlVoid, vtUrl);
     }
@@ -230,10 +230,14 @@ public class MainController{
             AnchorPane vtPane = vtLoader.load();
             AnchorPane urlVoidPane = urlVoidLoader.load();
 
-            for (int i = 0; i <= URL_TABS.length; i++){ //TODO - Fix in order to display correct URL FXML files.
+            AnchorPane[] panes = {vtPane, urlVoidPane};
+
+            int counter = 0;
+            for (int i = 0; i <= URL_TABS.length; i++){ // Extract this to a method and refactor entire function to be more readable.
                 if (mainContent.getTabs().get(i).getContent() == null){
                     mainContent.getTabs().get(i).setContent(new AnchorPane());
-                    ((AnchorPane) mainContent.getTabs().get(i).getContent()).getChildren().addAll(vtPane);
+                    ((AnchorPane) mainContent.getTabs().get(i).getContent()).getChildren().addAll(panes[counter]);
+                    ++counter;
                 }
             }
             ((AnchorPane) mainContent.getTabs().get(0).getContent()).getChildren().addAll(overviewPane);

@@ -1,3 +1,3 @@
 package com.tact.threatanalysiscontextualizationtool;
 
-public enum SeverityFile {SAFE, SUSPICIOUS, MALICIOUS}
+public enum Severity {SAFE, SUSPICIOUS, MALICIOUS}

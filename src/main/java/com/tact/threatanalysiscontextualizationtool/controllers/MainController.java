@@ -161,14 +161,14 @@ public class MainController{
         VirusTotalFileController vtController = new VirusTotalFileController(infoObjects.vtFile());
 
         try { //TODO - Figure out a better way to load the FXML panes instead of using redundant code.
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/com/tact/threatanalysiscontextualizationtool/FXML/overview-file.fxml"));
-            FXMLLoader loader2 = new FXMLLoader(Main.class.getResource("/com/tact/threatanalysiscontextualizationtool/FXML/virus-total-file.fxml"));
+            FXMLLoader overviewLoader = new FXMLLoader(Main.class.getResource("/com/tact/threatanalysiscontextualizationtool/FXML/overview-file.fxml"));
+            FXMLLoader vtLoader = new FXMLLoader(Main.class.getResource("/com/tact/threatanalysiscontextualizationtool/FXML/virus-total-file.fxml"));
 
-            loader.setController(overviewController);
-            loader2.setController(vtController);
+            overviewLoader.setController(overviewController);
+            vtLoader.setController(vtController);
 
-            AnchorPane overviewPane = loader.load();
-            AnchorPane vtPane = loader2.load();
+            AnchorPane overviewPane = overviewLoader.load();
+            AnchorPane vtPane = vtLoader.load();
 
             for (int i = 0; i <= FILE_TABS.length; i++){
                 if (mainContent.getTabs().get(i).getContent() == null){
@@ -205,7 +205,7 @@ public class MainController{
 
     private void startURLThreads(Talos talos, URLVoid urlVoid, VirusTotalURL vtUrl) {
 //        talos.start();
-//        urlVoid.start();
+        urlVoid.start();
         vtUrl.start();
         while (vtUrl.isAlive()){
             continue;
@@ -213,7 +213,36 @@ public class MainController{
     }
 
     private void loadURLWindowTabs(URL urlObj) {
-        System.out.println(urlObj.vtURL());
+        OverviewURLController overviewController = new OverviewURLController(urlObj);
+        VirusTotalURLController vtController = new VirusTotalURLController(urlObj.vtURL());
+        URLVoidController urlVoidController = new URLVoidController(urlObj.urlVoid());
+
+        try { //TODO - Figure out a better way to load the FXML panes instead of using redundant code.
+            FXMLLoader overviewLoader = new FXMLLoader(Main.class.getResource("/com/tact/threatanalysiscontextualizationtool/FXML/overview-url.fxml"));
+            FXMLLoader vtLoader = new FXMLLoader(Main.class.getResource("/com/tact/threatanalysiscontextualizationtool/FXML/virus-total-url.fxml"));
+            FXMLLoader urlVoidLoader = new FXMLLoader(Main.class.getResource("/com/tact/threatanalysiscontextualizationtool/FXML/urlVoid.fxml"));
+
+            overviewLoader.setController(overviewController);
+            vtLoader.setController(vtController);
+            urlVoidLoader.setController(urlVoidController);
+
+            AnchorPane overviewPane = overviewLoader.load();
+            AnchorPane vtPane = vtLoader.load();
+            AnchorPane urlVoidPane = urlVoidLoader.load();
+
+            for (int i = 0; i <= URL_TABS.length; i++){ //TODO - Fix in order to display correct URL FXML files.
+                if (mainContent.getTabs().get(i).getContent() == null){
+                    mainContent.getTabs().get(i).setContent(new AnchorPane());
+                    ((AnchorPane) mainContent.getTabs().get(i).getContent()).getChildren().addAll(vtPane);
+                }
+            }
+            ((AnchorPane) mainContent.getTabs().get(0).getContent()).getChildren().addAll(overviewPane);
+
+            disables();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void disables(){

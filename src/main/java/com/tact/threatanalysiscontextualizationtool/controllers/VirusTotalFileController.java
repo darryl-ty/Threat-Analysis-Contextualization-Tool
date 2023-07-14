@@ -1,5 +1,6 @@
 package com.tact.threatanalysiscontextualizationtool.controllers;
 
+import com.tact.threatanalysiscontextualizationtool.SeverityFile;
 import com.tact.threatanalysiscontextualizationtool.VirusTotalFile;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -7,14 +8,8 @@ import javafx.scene.control.TextArea;
 
 public class VirusTotalFileController {
 
-    enum Severity{
-        SAFE,
-        SUSPICIOUS,
-        MALICIOUS
-    }
-
     private final VirusTotalFile vt;
-    private Severity fileSev;
+    private SeverityFile fileSev;
     @FXML
     private Label fileOverviewName;
     @FXML
@@ -46,11 +41,11 @@ public class VirusTotalFileController {
 
     private void fileSeverity(){
         if (vt.getThreatRating() <= 3)
-            fileSev = Severity.SAFE;
+            fileSev = SeverityFile.SAFE;
         else if (vt.getThreatRating() <= 7)
-            fileSev = Severity.SUSPICIOUS;
+            fileSev = SeverityFile.SUSPICIOUS;
         else
-            fileSev = Severity.MALICIOUS;
+            fileSev = SeverityFile.MALICIOUS;
     }
 
     private void fieldPopulation() {

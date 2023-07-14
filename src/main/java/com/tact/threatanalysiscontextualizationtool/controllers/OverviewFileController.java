@@ -1,5 +1,6 @@
 package com.tact.threatanalysiscontextualizationtool.controllers;
 
+import com.tact.threatanalysiscontextualizationtool.SeverityFile;
 import com.tact.threatanalysiscontextualizationtool.records.FILE;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -7,14 +8,8 @@ import javafx.scene.control.TextArea;
 
 public class OverviewFileController {
 
-    enum Severity{
-        SAFE,
-        SUSPICIOUS,
-        MALICIOUS
-    }
-
     private final FILE overview;
-    private Severity fileSev;
+    private SeverityFile fileSev;
     @FXML
     private Label fileOverviewName;
     @FXML
@@ -47,11 +42,11 @@ public class OverviewFileController {
 
     private void fileSeverity(){ // Remember to average this rating across the # of OSINT sites.
         if (overview.vtFile().getThreatRating() <= 3)
-            fileSev = Severity.SAFE;
+            fileSev = SeverityFile.SAFE;
         else if (overview.vtFile().getThreatRating() <= 7)
-            fileSev = Severity.SUSPICIOUS;
+            fileSev = SeverityFile.SUSPICIOUS;
         else
-            fileSev = Severity.MALICIOUS;
+            fileSev = SeverityFile.MALICIOUS;
     }
 
     private void fieldPopulation() {

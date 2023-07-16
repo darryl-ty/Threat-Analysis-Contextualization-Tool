@@ -49,6 +49,7 @@ public class URLVoid extends Thread{
 
         inputUrlToSearch((JavascriptExecutor) driverURLVoid);
         searchButtonClick((JavascriptExecutor) driverURLVoid);
+        sleepForASecond();
     }
 
     private void inputUrlToSearch(JavascriptExecutor driverURLVoid){

@@ -39,7 +39,7 @@ public class VirusTotalFile extends Thread {
 
     private WebDriver createWebDriverWithOptions(){
         ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless=new");
+        options.addArguments("--headless=new");
 
         return new ChromeDriver(options);
     }
@@ -148,7 +148,7 @@ public class VirusTotalFile extends Thread {
 
     private static void sleepForASecond() {
         try {
-            Thread.sleep(10000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

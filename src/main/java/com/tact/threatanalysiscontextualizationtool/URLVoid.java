@@ -13,6 +13,7 @@ public class URLVoid extends Thread{
     private String serverLocation;
     private String city;
     private String region;
+    private String infoLink;
     private int webRating;
 
     public URLVoid(String url){
@@ -21,6 +22,7 @@ public class URLVoid extends Thread{
         this.serverLocation = "";
         this.city = "";
         this.region = "";
+        this.infoLink = "";
         this.webRating = 0;
     }
 
@@ -65,6 +67,7 @@ public class URLVoid extends Thread{
         urlCityLocation((JavascriptExecutor) driverURLVoid);
         urlStateLocation((JavascriptExecutor) driverURLVoid);
         urlRating((JavascriptExecutor) driverURLVoid);
+        urlVoidLink((driverURLVoid));
     }
 
     private void urlDateRegistered(JavascriptExecutor driverURLVoid){
@@ -90,6 +93,10 @@ public class URLVoid extends Thread{
     private void urlRating(JavascriptExecutor driverURLVoid){
         WebElement rating = (WebElement) driverURLVoid.executeScript("return document.querySelector(\"body > div.container > div:nth-child(2) > div.panel-body > div > table > tbody > tr:nth-child(3) > td:nth-child(2) > span\")");
         webRating = Integer.parseInt(rating.getText().strip().split("/")[0]);
+    }
+
+    private void urlVoidLink(WebDriver driverURLVoid){
+        infoLink = driverURLVoid.getCurrentUrl();
     }
 
     private static void sleepForASecond() {
@@ -119,6 +126,9 @@ public class URLVoid extends Thread{
 
     public String getRegion() {
         return region;
+    }
+    public String getInfoLink(){
+        return infoLink;
     }
 
     public int getWebRating() {

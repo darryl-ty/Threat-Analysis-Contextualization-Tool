@@ -34,7 +34,7 @@ public class URLVoid extends Thread{
 
     private WebDriver createWebDriverWithOptions(){
         ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless=new");
+        options.addArguments("--headless=new");
 
         return new ChromeDriver(options);
     }

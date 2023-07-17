@@ -67,7 +67,7 @@ public class VirusTotalURLController {
     private void populateReferencedIPs(){
         StringBuilder ipBuilder = new StringBuilder();
 
-        for (String ip : vtUrl.getReferencedFiles()){
+        for (String ip : vtUrl.getReferencedIPs()){
             ipBuilder.append("• ").append(ip).append("\n");
         }
         ipAddresses.setText(ipBuilder.toString());

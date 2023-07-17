@@ -83,6 +83,8 @@ public class MainController{
     }
 
     public void uploadWindowEnable(){
+        clearWindow();
+
         uploadPopup.setVisible(true);
         greyOut.setVisible(true);
         menuDropdown.setVisible(true);
@@ -125,7 +127,7 @@ public class MainController{
         removeTabs();
     }
 
-    public void submitSelection(ActionEvent event){
+    public void submitSelection(){
         if (fileSelect){
             FILE fileInfo = fileUpload(uploadedFile);
             loadFileWindowTabs(fileInfo);
@@ -141,6 +143,11 @@ public class MainController{
 
     public void settingsPopupWindow(){
 
+    }
+
+    private void clearWindow(){
+        mainContent.getTabs().remove(1, mainContent.getTabs().size());
+        ((AnchorPane) mainContent.getTabs().get(0).getContent()).getChildren().setAll(new AnchorPane());
     }
 
     private FILE fileUpload(File file){
@@ -178,11 +185,6 @@ public class MainController{
             }
             ((AnchorPane) mainContent.getTabs().get(0).getContent()).getChildren().addAll(overviewPane);
 
-//            AnchorPane.setBottomAnchor(newPane, 0.0);
-//            AnchorPane.setLeftAnchor(newPane, 0.0);
-//            AnchorPane.setRightAnchor(newPane, 0.0);
-//            AnchorPane.setTopAnchor(newPane, 0.0);
-
             disables();
 
         } catch (IOException e) {
@@ -198,7 +200,7 @@ public class MainController{
         URLVoid urlVoid = new URLVoid(url);
         VirusTotalURL vtUrl = new VirusTotalURL(url);
 
-//        startURLThreads(talos, urlVoid, vtUrl);
+        startURLThreads(talos, urlVoid, vtUrl);
 
         return new URL(talos, urlVoid, vtUrl);
     }
@@ -207,28 +209,28 @@ public class MainController{
 //        talos.start();
         urlVoid.start();
         vtUrl.start();
-        while (vtUrl.isAlive()){
+        while (vtUrl.isAlive() || urlVoid.isAlive()){
             continue;
         }
     }
 
     private void loadURLWindowTabs(URL urlObj) {
-        OverviewURLController overviewController = new OverviewURLController(urlObj);
         VirusTotalURLController vtController = new VirusTotalURLController(urlObj.vtURL());
         URLVoidController urlVoidController = new URLVoidController(urlObj.urlVoid());
+        OverviewURLController overviewController = new OverviewURLController(urlObj);
 
         try { //TODO - Figure out a better way to load the FXML panes instead of using redundant code.
-            FXMLLoader overviewLoader = new FXMLLoader(Main.class.getResource("/com/tact/threatanalysiscontextualizationtool/FXML/overview-url.fxml"));
             FXMLLoader vtLoader = new FXMLLoader(Main.class.getResource("/com/tact/threatanalysiscontextualizationtool/FXML/virus-total-url.fxml"));
             FXMLLoader urlVoidLoader = new FXMLLoader(Main.class.getResource("/com/tact/threatanalysiscontextualizationtool/FXML/urlVoid.fxml"));
+            FXMLLoader overviewLoader = new FXMLLoader(Main.class.getResource("/com/tact/threatanalysiscontextualizationtool/FXML/overview-url.fxml"));
 
-            overviewLoader.setController(overviewController);
             vtLoader.setController(vtController);
             urlVoidLoader.setController(urlVoidController);
+            overviewLoader.setController(overviewController);
 
-            AnchorPane overviewPane = overviewLoader.load();
             AnchorPane vtPane = vtLoader.load();
             AnchorPane urlVoidPane = urlVoidLoader.load();
+            AnchorPane overviewPane = overviewLoader.load();
 
             AnchorPane[] panes = {vtPane, urlVoidPane};
 

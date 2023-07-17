@@ -4,6 +4,7 @@ import com.tact.threatanalysiscontextualizationtool.Severity;
 import com.tact.threatanalysiscontextualizationtool.records.URL;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class OverviewURLController {
@@ -25,7 +26,7 @@ public class OverviewURLController {
     @FXML
     private Label categories;
     @FXML
-    private TextField additionalInfo;
+    private TextArea additionalInfo;
 
     public OverviewURLController(URL overview){
         this.overview = overview;

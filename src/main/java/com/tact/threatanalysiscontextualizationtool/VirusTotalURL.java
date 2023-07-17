@@ -32,6 +32,13 @@ public class VirusTotalURL extends Thread{
         vtInfoCollection(driver);
     }
 
+    private WebDriver createWebDriverWithOptions(){
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+
+        return new ChromeDriver(options);
+    }
+
     private void initiateVirusTotalWebDriver(WebDriver driverVirusTotal) {
         vtWebsiteNav(driverVirusTotal);
     }
@@ -136,13 +143,6 @@ public class VirusTotalURL extends Thread{
             e.printStackTrace();
             referencedFiles.add("No referenced Files");
         }
-    }
-
-    private WebDriver createWebDriverWithOptions(){
-        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless=new");
-
-        return new ChromeDriver(options);
     }
 
     private static void sleepForASecond() {

@@ -25,11 +25,11 @@
         <VBox spacing="10.0" GridPane.columnIndex="0">
             <Label style="-fx-font-size: 18px;" text="File Information" />
             <HBox spacing="10.0">
-                <Label text="Filename:" />
+                <Label minWidth="51.0" text="Filename:" />
                 <Label fx:id="fileOverviewName" text="sample.exe" />
             </HBox>
             <HBox layoutX="10.0" layoutY="47.0" spacing="10.0">
-                <Label text="File Type:" />
+                <Label minWidth="50.0" text="File Type:" />
                 <Label fx:id="fileType" text="sample.exe" />
             </HBox>
             <HBox spacing="10.0">
@@ -37,7 +37,7 @@
                 <Label fx:id="fileSize" text="3.5 MB" />
             </HBox>
             <HBox spacing="10.0">
-                <Label ellipsisString="SHA256 Hash" text="SHA256 Hash:" textOverrun="CLIP" />
+                <Label ellipsisString="SHA256 Hash" minWidth="75.0" text="SHA256 Hash:" textOverrun="CLIP" />
                 <Label fx:id="fileHash" text="34cd89c8ab9e0c4d6fd642ee1d798bb2" wrapText="true" />
             </HBox>
         </VBox>
